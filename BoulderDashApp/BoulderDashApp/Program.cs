@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BoulderDashApp.Process;
 
 namespace BoulderDashApp
 {
@@ -10,7 +11,7 @@ namespace BoulderDashApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("hoi");
+            Maincontroller mc = new Maincontroller();
         }
     }
 }

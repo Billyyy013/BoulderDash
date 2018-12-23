@@ -53,6 +53,8 @@
     <Compile Include="Model\Steelwall.cs" />
     <Compile Include="Model\TNT.cs" />
     <Compile Include="Model\Wall.cs" />
+    <Compile Include="Process\Maincontroller.cs" />
+    <Compile Include="Process\LevelData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\InputView.cs" />
@@ -61,8 +63,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Process\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
