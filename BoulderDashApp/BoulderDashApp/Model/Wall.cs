@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace BoulderDashApp.Model
 {
-    class Wall
+    class Wall : Tile
     {
+        public override char Symbol { get; set; }
+
+        public Wall()
+        {
+            Symbol = 'W';
+        }
     }
 }

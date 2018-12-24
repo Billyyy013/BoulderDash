@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace BoulderDashApp.Model
 {
-    class Diamond
+    class Diamond : Entity
     {
+        public Diamond()
+        {
+            Symbol = 'D';
+        }
     }
 }

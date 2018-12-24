@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace BoulderDashApp.Model
 {
-    class Exit
+    class Exit : Tile
     {
+        public override char Symbol { get; set; }
+
+        public Exit()
+        {
+            Symbol = 'E';
+        }
     }
 }

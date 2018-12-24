@@ -45,12 +45,14 @@
   <ItemGroup>
     <Compile Include="Model\Boulder.cs" />
     <Compile Include="Model\Diamond.cs" />
+    <Compile Include="Model\Entity.cs" />
     <Compile Include="Model\Exit.cs" />
     <Compile Include="Model\Firefly.cs" />
     <Compile Include="Model\HardenedMud.cs" />
     <Compile Include="Model\Mud.cs" />
     <Compile Include="Model\Rockford.cs" />
     <Compile Include="Model\Steelwall.cs" />
+    <Compile Include="Model\Tile.cs" />
     <Compile Include="Model\TNT.cs" />
     <Compile Include="Model\Wall.cs" />
     <Compile Include="Process\Maincontroller.cs" />

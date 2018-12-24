@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace BoulderDashApp.Model
 {
-    class Rockford : Entity
+    abstract class Tile
     {
-        public Rockford()
-        {
-            Symbol = 'R';
-        }
+        abstract public char Symbol { get; set; }
     }
 }

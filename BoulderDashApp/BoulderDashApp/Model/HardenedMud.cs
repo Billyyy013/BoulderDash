@@ -8,5 +8,9 @@ namespace BoulderDashApp.Model
 {
     class HardenedMud : Mud
     {
+        public HardenedMud()
+        {
+
+        }
     }
 }

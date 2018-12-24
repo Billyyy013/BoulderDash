@@ -8,6 +8,9 @@ namespace BoulderDashApp.Model
 {
     class Steelwall : Wall
     {
-
+        public Steelwall()
+        {
+            Symbol = 'S';
+        }
     }
 }
