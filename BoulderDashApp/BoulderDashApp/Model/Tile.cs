@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace BoulderDashApp.Model
 {
-    abstract class Tile
+    public abstract class Tile
     {
         abstract public char Symbol { get; set; }
+
+        public Entity Entity { get; set; }
     }
 }

@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace BoulderDashApp.Model
 {
-    class Firefly : Entity
+    public class Firefly : Moveable
     {
         public Firefly()
         {
             Symbol = 'F';
+        }
+
+        public void Move()
+        {
+            throw new NotImplementedException();
         }
     }
 }

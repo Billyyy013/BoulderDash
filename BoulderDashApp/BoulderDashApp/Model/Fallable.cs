@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace BoulderDashApp.Model
 {
-    public abstract class Entity
+    public abstract class Fallable : Entity
     {
-       public virtual char Symbol { get; set; }
     }
 }

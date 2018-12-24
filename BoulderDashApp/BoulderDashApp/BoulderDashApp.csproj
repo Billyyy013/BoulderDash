@@ -44,11 +44,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Boulder.cs" />
+    <Compile Include="Model\Cave.cs" />
     <Compile Include="Model\Diamond.cs" />
+    <Compile Include="Model\EmptyTIle.cs" />
     <Compile Include="Model\Entity.cs" />
     <Compile Include="Model\Exit.cs" />
+    <Compile Include="Model\Fallable.cs" />
     <Compile Include="Model\Firefly.cs" />
     <Compile Include="Model\HardenedMud.cs" />
+    <Compile Include="Model\Moveable.cs" />
     <Compile Include="Model\Mud.cs" />
     <Compile Include="Model\Rockford.cs" />
     <Compile Include="Model\Steelwall.cs" />
@@ -64,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

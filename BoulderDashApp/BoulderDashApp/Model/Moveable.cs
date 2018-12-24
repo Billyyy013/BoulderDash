@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace BoulderDashApp.Model
 {
-    public abstract class Entity
+    public abstract class Moveable : Entity
     {
-       public virtual char Symbol { get; set; }
+        public Tile Tile { get; set; }
     }
 }
