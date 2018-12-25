@@ -12,7 +12,7 @@ namespace BoulderDashApp.Model
 
         public Exit()
         {
-            Symbol = 'E';
+            Symbol = '0';
         }
     }
 }
