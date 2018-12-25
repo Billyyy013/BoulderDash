@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace BoulderDashApp.Model
 {
-    public class TNT: Entity
+    public class TNT : Fallable
     {
+        public TNT()
+        {
+            Symbol = 'T';
+        }
     }
 }

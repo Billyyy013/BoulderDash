@@ -24,7 +24,7 @@
   <Class Name="BoulderDashApp.Model.Exit" Collapsed="true">
     <Position X="10.5" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Exit.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -45,7 +45,7 @@
   <Class Name="BoulderDashApp.Model.Mud" Collapsed="true">
     <Position X="8.25" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Mud.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -66,7 +66,7 @@
   <Class Name="BoulderDashApp.Model.Tile">
     <Position X="10.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <HashCode>EAAAACAAAAAAAAIAAAAAAAAAABAAAAAACACAAAAACAA=</HashCode>
       <FileName>Model\Tile.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -80,21 +80,21 @@
   <Class Name="BoulderDashApp.Model.Wall" Collapsed="true">
     <Position X="12.75" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Wall.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BoulderDashApp.Process.LevelData" Collapsed="true">
     <Position X="16.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAAAAgABAAEAAAAAAAA=</HashCode>
+      <HashCode>AACAAAAAAQAAAAAAAAAAAAAAAAAAAgABAAEBAAAAAAA=</HashCode>
       <FileName>Process\LevelData.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BoulderDashApp.Process.Maincontroller" Collapsed="true">
     <Position X="18.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AACAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAABAAEAAA=</HashCode>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAACAAgAAAAAAAAABAAEAAA=</HashCode>
       <FileName>Process\Maincontroller.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -108,7 +108,7 @@
   <Class Name="BoulderDashApp.View.OutputView" Collapsed="true">
     <Position X="18.75" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
       <FileName>View\OutputView.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -132,6 +132,8 @@
       <Path>
         <Point X="12.25" Y="1.062" />
         <Point X="12.25" Y="1.438" />
+        <Point X="13.417" Y="1.437" Type="JumpStart" />
+        <Point X="13.583" Y="1.438" Type="JumpEnd" />
         <Point X="14" Y="1.438" />
       </Path>
     </InheritanceLine>

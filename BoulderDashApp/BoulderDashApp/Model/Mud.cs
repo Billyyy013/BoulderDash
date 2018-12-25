@@ -8,11 +8,10 @@ namespace BoulderDashApp.Model
 {
     class Mud : Tile
     {
-        public override char Symbol { get; set; }
 
         public Mud()
         {
-            Symbol = '▒';
+            OwnSymbol = '▒';
         }
     }
 }

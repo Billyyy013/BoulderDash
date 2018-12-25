@@ -8,11 +8,10 @@ namespace BoulderDashApp.Model
 {
     class Wall : Tile
     {
-        public override char Symbol { get; set; }
 
         public Wall()
         {
-            Symbol = '=';
+            OwnSymbol = '=';
         }
     }
 }

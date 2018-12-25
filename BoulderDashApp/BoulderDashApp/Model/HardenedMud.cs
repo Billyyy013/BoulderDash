@@ -10,7 +10,7 @@ namespace BoulderDashApp.Model
     {
         public HardenedMud()
         {
-
+            OwnSymbol = 'H';
         }
     }
 }

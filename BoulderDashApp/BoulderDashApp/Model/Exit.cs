@@ -8,11 +8,10 @@ namespace BoulderDashApp.Model
 {
     class Exit : Tile
     {
-        public override char Symbol { get; set; }
 
         public Exit()
         {
-            Symbol = '0';
+            OwnSymbol = '0';
         }
     }
 }
