@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BoulderDashApp.Model
 {
-    class TNT
+    public class TNT: Entity
     {
     }
 }

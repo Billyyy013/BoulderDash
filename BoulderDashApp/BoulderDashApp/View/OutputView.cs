@@ -20,7 +20,7 @@ namespace BoulderDashApp.View
             {
                 while(horizontal != null)
                 {
-                    Console.WriteLine(horizontal.Symbol);
+                    Console.Write(horizontal.Symbol);
                     horizontal = horizontal.Right;
                 }
                 Console.WriteLine();

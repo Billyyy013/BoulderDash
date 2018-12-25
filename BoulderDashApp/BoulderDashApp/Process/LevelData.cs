@@ -110,7 +110,7 @@ namespace BoulderDashApp.Process
         public void BuildMaze()
         {
             Cave = new Cave();
-            Model.Tile[,] tiles = new Model.Tile[22, 40];
+            Model.Tile[,] tiles = new Model.Tile[Level1.GetLength(0), Level1.GetLength(1)];
             for (int i = 0; i < Level1.GetLength(0); i++)
             {
                 for (int j = 0; j < Level1.GetLength(1); j++)
@@ -145,6 +145,16 @@ namespace BoulderDashApp.Process
                         case 'W':
                             tiles[i, j] = new Wall();
                             break;
+                        case 'H':
+                            tiles[i, j] = new HardenedMud();
+                            break;
+                        case 'T':
+                            tiles[i, j] = new EmptyTIle();
+                            tiles[i, j].Entity = new TNT();
+                            break;
+                        case 'E':
+                            tiles[i, j] = new Exit();
+                            break;
                     }
                     if (Cave.First == null)
                     {
@@ -157,7 +167,10 @@ namespace BoulderDashApp.Process
             {
                 for (int j = 0; j < Level1.GetLength(1); j++)
                 {
-                    if (i - 1 > -1) { tiles[i, j].Above = tiles[i - 1, j]; }
+                    if (i - 1 > -1)
+                    {
+                        tiles[i, j].Above = tiles[i - 1, j];
+                    }
                     if (i + 1 < Level1.GetLength(0))
                     {
                         tiles[i, j].Below = tiles[i + 1, j];
