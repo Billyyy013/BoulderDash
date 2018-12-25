@@ -10,7 +10,7 @@ namespace BoulderDashApp.Model
     {
         public Rockford()
         {
-            Symbol = 'R';
+            Symbol = '@';
         }
 
         public void Move(Tile MoveTo)

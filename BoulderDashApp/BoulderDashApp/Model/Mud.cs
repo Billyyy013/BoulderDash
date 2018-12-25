@@ -12,7 +12,7 @@ namespace BoulderDashApp.Model
 
         public Mud()
         {
-            Symbol = 'M';
+            Symbol = '▒';
         }
     }
 }

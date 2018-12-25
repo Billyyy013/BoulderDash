@@ -8,6 +8,9 @@ namespace BoulderDashApp.Model
 {
     class Boulder : Fallable
     {
-
+        public Boulder()
+        {
+            Symbol = 'o';
+        }
     }
 }

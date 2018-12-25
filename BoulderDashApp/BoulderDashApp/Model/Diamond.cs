@@ -10,7 +10,7 @@ namespace BoulderDashApp.Model
     {
         public Diamond()
         {
-            Symbol = 'D';
+            Symbol = '♠';
         }
     }
 }

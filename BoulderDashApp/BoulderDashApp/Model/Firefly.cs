@@ -10,7 +10,7 @@ namespace BoulderDashApp.Model
     {
         public Firefly()
         {
-            Symbol = 'F';
+            Symbol = '◙';
         }
 
         public void Move()

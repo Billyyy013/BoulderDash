@@ -12,7 +12,7 @@ namespace BoulderDashApp.Model
 
         public Wall()
         {
-            Symbol = 'W';
+            Symbol = '▬';
         }
     }
 }

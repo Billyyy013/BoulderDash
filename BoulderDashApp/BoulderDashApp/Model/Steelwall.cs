@@ -10,7 +10,7 @@ namespace BoulderDashApp.Model
     {
         public Steelwall()
         {
-            Symbol = 'S';
+            Symbol = '■';
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BoulderDashApp.Model;
 
 namespace BoulderDashApp.Process
 {
@@ -11,7 +12,7 @@ namespace BoulderDashApp.Process
         public static int Level_width = 40;
         public static int Level_height = 22;
 
-        public char[,] Level1 = new char[22, 40]
+        public static char[,] Level1 = new char[22, 40]
         {
         { 'S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S' },
         { 'S','M','M','M','M','M','M',' ','M','M','D','M','B','M','M','M','M','M','M','B','M','B','M','M','M','M','M','M','M',' ','M','M','M','M','B','M','M','M','M','S' },
@@ -88,18 +89,88 @@ namespace BoulderDashApp.Process
         { 'S',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','S' },
         { 'S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S' }
         };
+        public Model.Cave Cave { get; set; }
+
         public void PrintMaze()
         {
             int counter = 0;
-            foreach(char c in Level1)
+            foreach (char c in Level1)
             {
-                if(counter == 40)
+                if (counter == 40)
                 {
                     Console.WriteLine();
                     counter = 0;
                 }
                 Console.Write(c);
                 counter++;
+            }
+            //Console.WriteLine(Level1.GetLength(0));
+        }
+
+        public void BuildMaze()
+        {
+            Cave = new Cave();
+            Model.Tile[,] tiles = new Model.Tile[22, 40];
+            for (int i = 0; i < Level1.GetLength(0); i++)
+            {
+                for (int j = 0; j < Level1.GetLength(1); j++)
+                {
+                    switch (Level1[i, j])
+                    {
+                        case 'S':
+                            tiles[i, j] = new Steelwall();
+                            break;
+                        case 'M':
+                            tiles[i, j] = new Mud();
+                            break;
+                        case 'B':
+                            tiles[i, j] = new EmptyTIle();
+                            tiles[i, j].Entity = new Boulder();
+                            break;
+                        case 'R':
+                            tiles[i, j] = new EmptyTIle();
+                            tiles[i, j].Entity = new Rockford();
+                            break;
+                        case 'D':
+                            tiles[i, j] = new EmptyTIle();
+                            tiles[i, j].Entity = new Diamond();
+                            break;
+                        case 'F':
+                            tiles[i, j] = new EmptyTIle();
+                            tiles[i, j].Entity = new Firefly();
+                            break;
+                        case ' ':
+                            tiles[i, j] = new EmptyTIle();
+                            break;
+                        case 'W':
+                            tiles[i, j] = new Wall();
+                            break;
+                    }
+                    if (Cave.First == null)
+                    {
+                        Cave.First = tiles[i, j];
+                    }
+                }
+            }
+
+            for (int i = 0; i < Level1.GetLength(0); i++)
+            {
+                for (int j = 0; j < Level1.GetLength(1); j++)
+                {
+                    if (i - 1 > -1) { tiles[i, j].Above = tiles[i - 1, j]; }
+                    if (i + 1 < Level1.GetLength(0))
+                    {
+                        tiles[i, j].Below = tiles[i + 1, j];
+                    }
+                    if (j - 1 > -1)
+                    {
+                        tiles[i, j].Left = tiles[i, j - 1];
+                    }
+                    if (j + 1 < Level1.GetLength(1))
+                    {
+                        tiles[i, j].Right = tiles[i, j + 1];
+                    }
+                }
             }
         }
     }

@@ -8,14 +8,18 @@ namespace BoulderDashApp.Process
 {
     class Maincontroller
     {
+        private View.OutputView outputView;
         private LevelData _levelData;
 
         public Model.Cave Cave { get; set; }
 
         public Maincontroller()
         {
+            outputView = new View.OutputView();
             _levelData = new LevelData();
-            _levelData.PrintMaze();
+            _levelData.BuildMaze();
+            Cave = _levelData.Cave;
+            outputView.PrintMaze(Cave.First);
             Console.ReadLine();
         }
 
