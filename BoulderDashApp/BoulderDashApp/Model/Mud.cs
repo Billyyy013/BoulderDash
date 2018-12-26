@@ -34,5 +34,11 @@ namespace BoulderDashApp.Model
                 return false;
             }
         }
+
+        public override void PlaceEntity(Tile previous)
+        {
+            Entity = previous.Entity;
+            previous.Entity = null;
+        }
     }
 }

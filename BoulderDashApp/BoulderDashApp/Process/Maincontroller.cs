@@ -58,11 +58,13 @@ namespace BoulderDashApp.Process
                     switch (key)
                     {
                         case ConsoleKey.UpArrow:
-                            if (currentTile.Above.Above == null) { break; }
-                            if (Cave.CurrentRockford.Above.PutEntityOnThisField(Cave, Cave.CurrentRockford, Cave.CurrentRockford.Above.Above))
-                            {
-                                Cave.CurrentRockford = Cave.CurrentRockford.Above;
-                            }
+                            //if (currentTile.Above.Above == null) { break; }
+                            //if (Cave.CurrentRockford.Above.PutEntityOnThisField(Cave, Cave.CurrentRockford, Cave.CurrentRockford.Above.Above))
+                            //{
+                            //Cave.CurrentRockford = Cave.CurrentRockford.Above;
+                            Cave.CurrentRockford.Above.PlaceEntity(Cave.CurrentRockford);
+                            Cave.Rockford.Move(Cave.CurrentRockford);
+                            //}
                             break;
                         case ConsoleKey.DownArrow:
                             if (currentTile.Below.Below == null) { break; }

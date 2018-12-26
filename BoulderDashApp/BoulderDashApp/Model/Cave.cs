@@ -18,7 +18,7 @@ namespace BoulderDashApp.Model
 
         public Cave()
         {
-            
+            Rockford = new Rockford();
         }
 
         internal void MoveFireflys()

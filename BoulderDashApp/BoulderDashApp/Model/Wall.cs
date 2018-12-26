@@ -14,6 +14,11 @@ namespace BoulderDashApp.Model
             OwnSymbol = '=';
         }
 
+        public override void PlaceEntity(Tile previous)
+        {
+            return;
+        }
+
         public override bool PutEntityOnThisField(Cave cave, Tile previous, Tile next)
         {
             throw new NotImplementedException();

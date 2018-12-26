@@ -24,7 +24,7 @@
   <Class Name="BoulderDashApp.Model.Exit" Collapsed="true">
     <Position X="10.5" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Exit.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -45,7 +45,7 @@
   <Class Name="BoulderDashApp.Model.Mud" Collapsed="true">
     <Position X="8.25" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Mud.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -66,7 +66,7 @@
   <Class Name="BoulderDashApp.Model.Tile">
     <Position X="10.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAAAACAAAAAAAAIAAAAAAAAAABAAAAAACACAAAAACAA=</HashCode>
+      <HashCode>EAAAACAAEAAAAAIAAAAAAAAAABAAAAAACACAAAAACAA=</HashCode>
       <FileName>Model\Tile.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -80,33 +80,33 @@
   <Class Name="BoulderDashApp.Model.Wall" Collapsed="true">
     <Position X="12.75" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Wall.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BoulderDashApp.Process.LevelData" Collapsed="true">
-    <Position X="16.75" Y="3.5" Width="1.5" />
+    <Position X="18.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AACAAAAAAQAAAAAAAAAAAAAAAAAAAgABAAEBAAAAAAA=</HashCode>
       <FileName>Process\LevelData.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BoulderDashApp.Process.Maincontroller" Collapsed="true">
-    <Position X="18.5" Y="3.5" Width="1.5" />
+    <Position X="20.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AACAAAAAAAAAAAAAAAAAAAACAAgAAAAAAAAABAAEAAA=</HashCode>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAACAAgAAAQAAAAABAAEAAA=</HashCode>
       <FileName>Process\Maincontroller.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BoulderDashApp.View.InputView" Collapsed="true">
-    <Position X="17" Y="4.75" Width="1.5" />
+    <Position X="18.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAAAAAAAAAAIAAAAAAAgAAAA=</HashCode>
       <FileName>View\InputView.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BoulderDashApp.View.OutputView" Collapsed="true">
-    <Position X="18.75" Y="4.75" Width="1.5" />
+    <Position X="20.75" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
       <FileName>View\OutputView.cs</FileName>
@@ -115,7 +115,7 @@
   <Class Name="BoulderDashApp.Model.EmptyTIle" Collapsed="true">
     <Position X="14.75" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\EmptyTIle.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -132,7 +132,7 @@
       <Path>
         <Point X="12.25" Y="1.062" />
         <Point X="12.25" Y="1.438" />
-        <Point X="13.417" Y="1.437" Type="JumpStart" />
+        <Point X="13.417" Y="1.438" Type="JumpStart" />
         <Point X="13.583" Y="1.438" Type="JumpEnd" />
         <Point X="14" Y="1.438" />
       </Path>
@@ -141,6 +141,16 @@
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
       <FileName>Model\Moveable.cs</FileName>
     </TypeIdentifier>
+  </Class>
+  <Class Name="BoulderDashApp.Model.Cave">
+    <Position X="17.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAUAAAAAAAAAAACAAAAAAAQAA=</HashCode>
+      <FileName>Model\Cave.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Rockford" />
+    </ShowAsAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

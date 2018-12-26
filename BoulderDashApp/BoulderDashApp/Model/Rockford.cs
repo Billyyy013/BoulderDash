@@ -13,9 +13,9 @@ namespace BoulderDashApp.Model
             Symbol = '@';
         }
 
-        public void Move(Tile MoveTo)
+        public void Move(Tile moveTo)
         {
-            throw new NotImplementedException();
+            moveTo = moveTo.Above;
         }
     }
 }
