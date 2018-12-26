@@ -9,5 +9,7 @@ namespace BoulderDashApp.Model
     public abstract class Entity
     {
        public virtual char Symbol { get; set; }
+
+      
     }
 }

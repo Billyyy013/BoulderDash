@@ -13,7 +13,7 @@ namespace BoulderDashApp.Model
             Symbol = '◙';
         }
 
-        public void Move()
+        public void Move(Tile MoveTo)
         {
             throw new NotImplementedException();
         }

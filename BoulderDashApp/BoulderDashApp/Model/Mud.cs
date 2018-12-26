@@ -13,5 +13,27 @@ namespace BoulderDashApp.Model
         {
             OwnSymbol = '▒';
         }
+
+        public override bool PutEntityOnThisField(Cave cave, Tile previous, Tile next)
+        {
+            if (Entity == null)
+            {
+                Entity = previous.Entity;
+                previous.Entity = null;
+                //Entity.ArrivedOnDestination(cave, 1);
+                return true;
+            }
+            else
+            {
+                if (next.Entity != null) { return false; }
+                if (next.PutEntityOnThisField(cave, this, next))
+                {
+                    Entity = previous.Entity;
+                    previous.Entity = null;
+                    return true;
+                }
+                return false;
+            }
+        }
     }
 }
