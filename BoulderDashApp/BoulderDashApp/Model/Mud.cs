@@ -20,7 +20,6 @@ namespace BoulderDashApp.Model
             {
                 Entity = previous.Entity;
                 previous.Entity = null;
-                //Entity.ArrivedOnDestination(cave, 1);
                 return true;
             }
             else
