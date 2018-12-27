@@ -10,6 +10,11 @@ namespace BoulderDashApp.View
     class OutputView
     {
 
+        public OutputView()
+        {
+            PrintWelcomeMessage();
+        }
+
         public void PrintMaze(Tile first)
         {
             Console.WriteLine();
@@ -27,6 +32,27 @@ namespace BoulderDashApp.View
                 vertical = vertical.Below;
                 horizontal = vertical;
             }
+        }
+
+        public void PrintWelcomeMessage()
+        {
+            Console.WriteLine("┌─────────────────────────────────────────────────────────┐");
+            Console.WriteLine("| Welkom bij BoulderDash                                  |");
+            Console.WriteLine("|                                                         |");
+            Console.WriteLine("| Betekenis van de symbolen    |    Doel van het spel     |");
+            Console.WriteLine("|                              |                          |");
+            Console.WriteLine("|      @ : rockford            |    Duw met de truck      |");
+            Console.WriteLine("|      ▒ : modder              |    De krat(ten)          |");
+            Console.WriteLine("|      . : vloer               |    naar de bestemming    |");
+            Console.WriteLine("|      o : steen               |                          |");
+            Console.WriteLine("|      D : Diamant             |                          |");
+            Console.WriteLine("|      0 : exit                |                          |");
+            Console.WriteLine("|      ◙ : firefly             |                          |");
+            Console.WriteLine("|      H : hardenedmud         |                          |");
+            Console.WriteLine("|      T : TNT                 |                          |");
+            Console.WriteLine("└─────────────────────────────────────────────────────────┘");
+            Console.WriteLine();
+
         }
     }
 }

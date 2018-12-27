@@ -62,8 +62,8 @@ namespace BoulderDashApp.Process
                             //if (Cave.CurrentRockford.Above.PutEntityOnThisField(Cave, Cave.CurrentRockford, Cave.CurrentRockford.Above.Above))
                             //{
                             //Cave.CurrentRockford = Cave.CurrentRockford.Above;
-                            Cave.CurrentRockford.Above.PlaceEntity(Cave.CurrentRockford);
-                            Cave.Rockford.Move(Cave.CurrentRockford);
+                            currentTile.Above.PlaceEntity(currentTile);
+                            Cave.Rockford.Move(currentTile);
                             //}
                             break;
                         case ConsoleKey.DownArrow:
