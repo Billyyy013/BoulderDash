@@ -3,28 +3,28 @@
   <Class Name="BoulderDashApp.Model.Boulder" Collapsed="true">
     <Position X="7.75" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Boulder.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BoulderDashApp.Model.Diamond" Collapsed="true">
     <Position X="10.25" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Diamond.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BoulderDashApp.Model.Entity" Collapsed="true">
     <Position X="11.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACQA=</HashCode>
       <FileName>Model\Entity.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BoulderDashApp.Model.Exit" Collapsed="true">
     <Position X="10.5" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
       <FileName>Model\Exit.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -36,7 +36,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="BoulderDashApp.Model.HardenedMud" Collapsed="true">
-    <Position X="6.25" Y="6.25" Width="1.5" />
+    <Position X="6" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\HardenedMud.cs</FileName>
@@ -45,7 +45,7 @@
   <Class Name="BoulderDashApp.Model.Mud" Collapsed="true">
     <Position X="6" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAQAAAAAAAAAAAAACAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAACAAAA=</HashCode>
       <FileName>Model\Mud.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -66,21 +66,21 @@
   <Class Name="BoulderDashApp.Model.Tile">
     <Position X="10.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAAAACAAEAAAAAIAAAAAAAAAABAAAAAACACAAACACAA=</HashCode>
+      <HashCode>EAAAACAAAAAAAAIAAAAAAAAAABAAAAAACACAAACACAA=</HashCode>
       <FileName>Model\Tile.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BoulderDashApp.Model.TNT" Collapsed="true">
-    <Position X="17.5" Y="0.75" Width="1.5" />
+    <Position X="6.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAIAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\TNT.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BoulderDashApp.Model.Wall" Collapsed="true">
     <Position X="12.75" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
       <FileName>Model\Wall.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -115,7 +115,7 @@
   <Class Name="BoulderDashApp.Model.EmptyTIle" Collapsed="true">
     <Position X="14.75" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
       <FileName>Model\EmptyTIle.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -132,13 +132,11 @@
       <Path>
         <Point X="12.25" Y="1.062" />
         <Point X="12.25" Y="1.438" />
-        <Point X="13.417" Y="1.438" Type="JumpStart" />
-        <Point X="13.583" Y="1.438" Type="JumpEnd" />
         <Point X="14" Y="1.438" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Moveable.cs</FileName>
     </TypeIdentifier>
   </Class>

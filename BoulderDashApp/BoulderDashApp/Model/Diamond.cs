@@ -12,5 +12,10 @@ namespace BoulderDashApp.Model
         {
             Symbol = 'D';
         }
+
+        public override void Collision(Entity entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

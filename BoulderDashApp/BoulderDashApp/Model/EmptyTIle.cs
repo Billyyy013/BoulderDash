@@ -22,11 +22,10 @@ namespace BoulderDashApp.Model
                 entity.Tile = this;
                 this.Entity = entity;
             }
-        }
-
-        public override bool PutEntityOnThisField(Cave cave, Tile previous, Tile next)
-        {
-            throw new NotImplementedException();
+            else
+            {
+                this.Entity.Collision(entity);
+            }
         }
     }
 }

@@ -152,7 +152,9 @@ namespace BoulderDashApp.Process
                             break;
                         case 'T':
                             tiles[i, j] = new EmptyTIle();
-                            tiles[i, j].Entity = new TNT();
+                            TNT t = new TNT();
+                            tiles[i, j].Entity = t;
+                            t.Tile = tiles[i, j];
                             break;
                         case 'E':
                             tiles[i, j] = new Exit();

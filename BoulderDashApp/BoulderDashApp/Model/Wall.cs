@@ -18,10 +18,5 @@ namespace BoulderDashApp.Model
         {
             return;
         }
-
-        public override bool PutEntityOnThisField(Cave cave, Tile previous, Tile next)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

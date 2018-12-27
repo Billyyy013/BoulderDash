@@ -12,5 +12,21 @@ namespace BoulderDashApp.Model
         {
             Symbol = 'T';
         }
+
+        public override void Collision(Entity entity)
+        {
+            if (entity.Symbol == '@')
+            {
+                this.Tile.Entity = null;
+                this.Tile.PlaceEntity(entity);
+            }
+            else
+            {
+                explode();
+            }
+        }
+        private void explode()
+        {
+        }
     }
 }
