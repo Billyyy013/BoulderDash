@@ -88,6 +88,7 @@ namespace BoulderDashApp.Process
                             }
                             break;
                     }
+                    Console.Clear();
                     outputView.PrintMaze(Cave.First);
                 }
                 else
