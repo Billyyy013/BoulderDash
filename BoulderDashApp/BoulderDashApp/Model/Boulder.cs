@@ -15,7 +15,12 @@ namespace BoulderDashApp.Model
 
         public override void Collision(Entity entity)
         {
-            throw new NotImplementedException();
+            //een rockford kan een boulder 1 plaats opschuiven
+            if (entity.Symbol == '@')
+            {
+               
+            }
+            return;
         }
     }
 }

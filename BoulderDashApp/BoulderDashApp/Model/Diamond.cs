@@ -15,7 +15,12 @@ namespace BoulderDashApp.Model
 
         public override void Collision(Entity entity)
         {
-            throw new NotImplementedException();
+            if (entity.Symbol == '@')
+            {
+                //iets van diamonds counter ++ ofzo TODO
+                this.Tile.Entity = null;
+                this.Tile.PlaceEntity(entity);
+            }
         }
     }
 }

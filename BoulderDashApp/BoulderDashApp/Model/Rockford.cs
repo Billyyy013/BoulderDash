@@ -15,7 +15,7 @@ namespace BoulderDashApp.Model
 
         public override void Collision(Entity entity)
         {
-            throw new NotImplementedException();
+            
         }
 
         public void Move(Tile moveTo)

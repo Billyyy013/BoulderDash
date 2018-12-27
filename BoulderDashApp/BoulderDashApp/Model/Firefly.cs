@@ -15,7 +15,19 @@ namespace BoulderDashApp.Model
 
         public override void Collision(Entity entity)
         {
-            throw new NotImplementedException();
+            if (entity.Symbol == 'o')
+            {
+                this.Tile.Entity = null;
+                this.Tile.PlaceEntity(entity);
+            }
+            else if (entity.Symbol == '@')
+            {
+                //MOETEN WE NOG NAAR EEN ANDERE LOCATIE VERPLAATSEN
+                Console.Clear();
+                Console.WriteLine("Rockfort hit a Firefly. Game Over!");
+                Console.ReadLine();
+                Environment.Exit(0);
+            }
         }
 
         public void Move()
