@@ -14,7 +14,7 @@ namespace BoulderDashApp.Model
             OwnSymbol = '0';
         }
 
-        public override void PlaceEntity(Tile previous)
+        public override void PlaceEntity(Entity entity)
         {
             throw new NotImplementedException();
         }

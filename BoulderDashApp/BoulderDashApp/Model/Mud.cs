@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace BoulderDashApp.Model
 {
-    class Mud : Tile
+    public class Mud : Tile
     {
-
+        public int HP { get; set; }
         public Mud()
         {
             OwnSymbol = '▒';
+            HP = 1;
         }
 
         public override bool PutEntityOnThisField(Cave cave, Tile previous, Tile next)
@@ -35,10 +36,32 @@ namespace BoulderDashApp.Model
             }
         }
 
-        public override void PlaceEntity(Tile previous)
+        public override void PlaceEntity(Entity entity)
         {
-            Entity = previous.Entity;
-            previous.Entity = null;
+            if (HP == 0)
+            {
+                entity.Tile.Entity = null;
+                entity.Tile = this;
+                this.Entity = entity;
+            }
+            else
+            {
+                HP--;
+                if (HP == 0)
+                {
+                    EmptyTIle emptyTIle = new EmptyTIle();
+                    emptyTIle.Left = this.Left;
+                    emptyTIle.Right = this.Right;
+                    emptyTIle.Above = this.Above;
+                    emptyTIle.Below = this.Below;
+                    emptyTIle.Entity = this.Entity;
+
+                    this.Above.Below = emptyTIle;
+                    this.Below.Above = emptyTIle;
+                    this.Left.Right = emptyTIle;
+                    this.Right.Left = emptyTIle;
+                }
+            }
         }
     }
 }

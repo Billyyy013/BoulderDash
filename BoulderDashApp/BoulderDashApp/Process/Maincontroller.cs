@@ -58,34 +58,16 @@ namespace BoulderDashApp.Process
                     switch (key)
                     {
                         case ConsoleKey.UpArrow:
-                            //if (currentTile.Above.Above == null) { break; }
-                            //if (Cave.CurrentRockford.Above.PutEntityOnThisField(Cave, Cave.CurrentRockford, Cave.CurrentRockford.Above.Above))
-                            //{
-                            //Cave.CurrentRockford = Cave.CurrentRockford.Above;
-                            currentTile.Above.PlaceEntity(currentTile);
-                            Cave.Rockford.Move(currentTile);
-                            //}
+                            Cave.Rockford.Tile.Above.PlaceEntity(Cave.Rockford);
                             break;
                         case ConsoleKey.DownArrow:
-                            if (currentTile.Below.Below == null) { break; }
-                            if (Cave.CurrentRockford.Below.PutEntityOnThisField(Cave, Cave.CurrentRockford, Cave.CurrentRockford.Below.Below))
-                            {
-                                Cave.CurrentRockford = Cave.CurrentRockford.Below;
-                            }
+                            Cave.Rockford.Tile.Below.PlaceEntity(Cave.Rockford);
                             break;
                         case ConsoleKey.LeftArrow:
-                            if (currentTile.Left.Left == null) { break; }
-                            if (Cave.CurrentRockford.Left.PutEntityOnThisField(Cave, Cave.CurrentRockford, Cave.CurrentRockford.Left.Left))
-                            {
-                                Cave.CurrentRockford = Cave.CurrentRockford.Left;
-                            }
+                            Cave.Rockford.Tile.Left.PlaceEntity(Cave.Rockford);
                             break;
                         case ConsoleKey.RightArrow:
-                            if (currentTile.Right.Right == null) { break; }
-                            if (Cave.CurrentRockford.Right.PutEntityOnThisField(Cave, Cave.CurrentRockford, Cave.CurrentRockford.Right.Right))
-                            {
-                                Cave.CurrentRockford = Cave.CurrentRockford.Right;
-                            }
+                            Cave.Rockford.Tile.Right.PlaceEntity(Cave.Rockford);
                             break;
                     }
                     Console.Clear();
