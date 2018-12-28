@@ -30,9 +30,9 @@ namespace BoulderDashApp.Model
             }
         }
 
-        public void Move()
+        public void Move(Tile tile)
         {
-            throw new NotImplementedException();
+            tile.PlaceEntity(this);
         }
     }
 }

@@ -128,6 +128,7 @@ namespace BoulderDashApp.Process
                             Boulder boulder = new Boulder();
                             tiles[i, j].Entity = boulder;
                             Cave.Boulders.Add(boulder);
+                            boulder.Tile = tiles[i, j];
                             break;
                         case 'R':
                             tiles[i, j] = new EmptyTIle();
@@ -140,7 +141,10 @@ namespace BoulderDashApp.Process
                             break;
                         case 'F':
                             tiles[i, j] = new EmptyTIle();
-                            tiles[i, j].Entity = new Firefly();
+                            Firefly firefly = new Firefly();
+                            tiles[i, j].Entity = firefly;
+                            Cave.Fireflys.Add(firefly);
+                            firefly.Tile = tiles[i,j];
                             break;
                         case ' ':
                             tiles[i, j] = new EmptyTIle();

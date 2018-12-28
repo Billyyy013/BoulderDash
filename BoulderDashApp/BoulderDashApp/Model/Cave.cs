@@ -20,14 +20,15 @@ namespace BoulderDashApp.Model
         {
             Rockford = new Rockford();
             Boulders = new List<Boulder>();
+            Fireflys = new List<Firefly>();
         }
 
-        internal void MoveFireflys()
-        {
-            foreach (Firefly f in Fireflys)
-            {
-                f.Move();
-            }
-        }
+        //internal void MoveFireflys()
+        //{
+        //    foreach (Firefly f in Fireflys)
+        //    {
+        //        f.Move();
+        //    }
+        //}
     }
 }

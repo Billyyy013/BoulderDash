@@ -18,7 +18,7 @@ namespace BoulderDashApp.Model
             //een rockford kan een boulder 1 plaats opschuiven
             if (entity.Symbol == '@')
             {
-               
+                this.Move(entity.Tile);
             }
             return;
         }

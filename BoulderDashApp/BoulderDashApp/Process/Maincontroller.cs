@@ -37,7 +37,7 @@ namespace BoulderDashApp.Process
                 //eerst de Rockford 1 stap
                 MoveRockford();
                 //daarna de fireflys 1 stap
-                Cave.MoveFireflys();
+                //Cave.MoveFireflys();
             }
             
         }
@@ -60,6 +60,9 @@ namespace BoulderDashApp.Process
                         case ConsoleKey.UpArrow:
                             //Cave.Rockford.Tile.Above.PlaceEntity(Cave.Rockford);
                             Cave.Rockford.Move(Cave.Rockford.Tile.Above);
+
+                            // in level 1 zit geen firefly, maar crasht nog steeds
+                            //Cave.Fireflys[0].Move(Cave.Fireflys[0].Tile.Left);
                             //Cave.Boulders[0].Move(Cave.Boulders[0].Tile.Below);
                             break;
                         case ConsoleKey.DownArrow:
@@ -75,10 +78,10 @@ namespace BoulderDashApp.Process
                             Cave.Rockford.Move(Cave.Rockford.Tile.Right);
                             break;
                     }
-                    //foreach(Boulder b in Cave.Boulders)
-                    //{
-                    //    b.Move(b.Tile.Below);
-                    //}
+                    foreach (Boulder b in Cave.Boulders)
+                    {
+                        b.Move(b.Tile.Below);
+                    }
                     Console.Clear();
                     outputView.PrintMaze(Cave.First);
                 }

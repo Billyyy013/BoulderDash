@@ -38,6 +38,10 @@ namespace BoulderDashApp.Model
 
         public override void PlaceEntity(Entity entity)
         {
+            if(entity.Symbol == 'o')
+            {
+                return;
+            }
             if (HP == 0)
             {
                 entity.Tile.Entity = null;
