@@ -32,7 +32,7 @@ namespace BoulderDashApp.Model
 
         public Entity Entity { get; set; }
 
-        public abstract void PlaceEntity(Entity entity);
+        public abstract void PlaceEntity(Entity entity, Tile next);
 
     }
 }

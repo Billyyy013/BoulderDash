@@ -11,6 +11,6 @@ namespace BoulderDashApp.Model
        public virtual char Symbol { get; set; }
        public Tile Tile { get; set; }
 
-       public abstract void Collision(Entity entity);
+       public abstract void Collision(Entity entity, Tile next);
     }
 }

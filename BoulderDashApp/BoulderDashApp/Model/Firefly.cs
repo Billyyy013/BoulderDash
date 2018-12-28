@@ -13,12 +13,12 @@ namespace BoulderDashApp.Model
             Symbol = '◙';
         }
 
-        public override void Collision(Entity entity)
+        public override void Collision(Entity entity, Tile next)
         {
             if (entity.Symbol == 'o')
             {
                 this.Tile.Entity = null;
-                this.Tile.PlaceEntity(entity);
+                this.Tile.PlaceEntity(entity, next);
             }
             else if (entity.Symbol == '@')
             {
@@ -32,7 +32,7 @@ namespace BoulderDashApp.Model
 
         public void Move(Tile tile)
         {
-            tile.PlaceEntity(this);
+            tile.PlaceEntity(this, null);
         }
     }
 }

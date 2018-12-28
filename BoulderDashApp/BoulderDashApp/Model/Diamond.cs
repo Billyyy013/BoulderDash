@@ -13,13 +13,13 @@ namespace BoulderDashApp.Model
             Symbol = 'D';
         }
 
-        public override void Collision(Entity entity)
+        public override void Collision(Entity entity, Tile next)
         {
             if (entity.Symbol == '@')
             {
                 //iets van diamonds counter ++ ofzo TODO
                 this.Tile.Entity = null;
-                this.Tile.PlaceEntity(entity);
+                this.Tile.PlaceEntity(entity, next);
             }
         }
     }

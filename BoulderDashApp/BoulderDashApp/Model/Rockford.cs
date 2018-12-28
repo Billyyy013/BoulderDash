@@ -13,17 +13,17 @@ namespace BoulderDashApp.Model
             Symbol = '@';
         }
 
-        public override void Collision(Entity entity)
+        public override void Collision(Entity entity, Tile next)
         {
             
         }
 
-        public void Move(Tile tile)
+        public void Move(Tile tile, Tile next)
         {
             //this.Tile.Entity = null;
             //this.Tile = above;
             //above.Entity = this;
-            tile.PlaceEntity(this);
+            tile.PlaceEntity(this, next);
         }
     }
 }

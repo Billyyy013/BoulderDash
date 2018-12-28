@@ -13,19 +13,19 @@ namespace BoulderDashApp.Model
             Symbol = 'o';
         }
 
-        public override void Collision(Entity entity)
+        public override void Collision(Entity entity, Tile next)
         {
             //een rockford kan een boulder 1 plaats opschuiven
             if (entity.Symbol == '@')
             {
-                this.Move(entity.Tile);
+                this.Move(next);
             }
             return;
         }
 
         public void Move(Tile tile)
         {
-            tile.PlaceEntity(this);
+            tile.PlaceEntity(this, null);
         }
     }
 }
