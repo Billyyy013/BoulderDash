@@ -18,9 +18,12 @@ namespace BoulderDashApp.Model
             
         }
 
-        public void Move(Tile moveTo)
+        public void Move(Tile tile)
         {
-            moveTo = moveTo.Above;
+            //this.Tile.Entity = null;
+            //this.Tile = above;
+            //above.Entity = this;
+            tile.PlaceEntity(this);
         }
     }
 }

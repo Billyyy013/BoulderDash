@@ -10,15 +10,16 @@ namespace BoulderDashApp.Model
     {
         public Rockford Rockford { get; set; }
 
-        public Tile CurrentRockford { get; set; }
-
         public Tile First { get; set; }
 
         public List<Firefly> Fireflys { get; set; }
 
+        public List<Boulder> Boulders { get; set; }
+
         public Cave()
         {
             Rockford = new Rockford();
+            Boulders = new List<Boulder>();
         }
 
         internal void MoveFireflys()

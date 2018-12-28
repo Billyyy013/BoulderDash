@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BoulderDashApp.Model
 {
-    class Boulder : Fallable
+    public class Boulder : Fallable
     {
         public Boulder()
         {
@@ -21,6 +21,11 @@ namespace BoulderDashApp.Model
                
             }
             return;
+        }
+
+        public void Move(Tile tile)
+        {
+            tile.PlaceEntity(this);
         }
     }
 }

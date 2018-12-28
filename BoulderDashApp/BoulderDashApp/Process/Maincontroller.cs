@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BoulderDashApp.Model;
 using BoulderDashApp.View;
 
 namespace BoulderDashApp.Process
@@ -52,24 +53,32 @@ namespace BoulderDashApp.Process
             while (true)
             {
                 ConsoleKey key = inputView.RetrieveConsoleKey();
-                Model.Tile currentTile = Cave.CurrentRockford;
                 if (key == ConsoleKey.UpArrow || key == ConsoleKey.DownArrow || key == ConsoleKey.LeftArrow || key == ConsoleKey.RightArrow)
                 {
                     switch (key)
                     {
                         case ConsoleKey.UpArrow:
-                            Cave.Rockford.Tile.Above.PlaceEntity(Cave.Rockford);
+                            //Cave.Rockford.Tile.Above.PlaceEntity(Cave.Rockford);
+                            Cave.Rockford.Move(Cave.Rockford.Tile.Above);
+                            //Cave.Boulders[0].Move(Cave.Boulders[0].Tile.Below);
                             break;
                         case ConsoleKey.DownArrow:
-                            Cave.Rockford.Tile.Below.PlaceEntity(Cave.Rockford);
+                            //Cave.Rockford.Tile.Below.PlaceEntity(Cave.Rockford);
+                            Cave.Rockford.Move(Cave.Rockford.Tile.Below);
                             break;
                         case ConsoleKey.LeftArrow:
-                            Cave.Rockford.Tile.Left.PlaceEntity(Cave.Rockford);
+                            //Cave.Rockford.Tile.Left.PlaceEntity(Cave.Rockford);
+                            Cave.Rockford.Move(Cave.Rockford.Tile.Left);
                             break;
                         case ConsoleKey.RightArrow:
-                            Cave.Rockford.Tile.Right.PlaceEntity(Cave.Rockford);
+                            //Cave.Rockford.Tile.Right.PlaceEntity(Cave.Rockford);
+                            Cave.Rockford.Move(Cave.Rockford.Tile.Right);
                             break;
                     }
+                    //foreach(Boulder b in Cave.Boulders)
+                    //{
+                    //    b.Move(b.Tile.Below);
+                    //}
                     Console.Clear();
                     outputView.PrintMaze(Cave.First);
                 }

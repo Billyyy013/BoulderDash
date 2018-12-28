@@ -125,13 +125,14 @@ namespace BoulderDashApp.Process
                             break;
                         case 'B':
                             tiles[i, j] = new EmptyTIle();
-                            tiles[i, j].Entity = new Boulder();
+                            Boulder boulder = new Boulder();
+                            tiles[i, j].Entity = boulder;
+                            Cave.Boulders.Add(boulder);
                             break;
                         case 'R':
                             tiles[i, j] = new EmptyTIle();
                             tiles[i, j].Entity = Cave.Rockford;
                             Cave.Rockford.Tile = tiles[i, j];
-                            Cave.CurrentRockford = tiles[i, j];
                             break;
                         case 'D':
                             tiles[i, j] = new EmptyTIle();
