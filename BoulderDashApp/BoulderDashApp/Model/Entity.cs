@@ -12,6 +12,6 @@ namespace BoulderDashApp.Model
        public Tile Tile { get; set; }
        public int DiamondCounter { get; set; }
 
-       public abstract void Collision(Entity entity, Tile next);
+       public abstract void Collision(Moveable entity, Tile next);
     }
 }

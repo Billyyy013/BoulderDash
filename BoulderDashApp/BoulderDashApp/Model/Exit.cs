@@ -9,15 +9,16 @@ namespace BoulderDashApp.Model
     class Exit : Tile
     {
         // als alle diamonds gevonden zijn moet de exit pas open gaan, geen idee hoe we dat doen op een polymorfe manier.
-        //public bool IsOpen { get; set; }
+        // ownsymbol moet nog aangepast worden maar voor testredenen op 0 gezet.
+        public bool IsOpen { get; set; }
         public Exit()
         {
             OwnSymbol = '0';
         }
 
-        public override void PlaceEntity(Entity entity, Tile next)
+        public override void PlaceEntity(Moveable entity, Tile next)
         {
-            if (OwnSymbol == '0')
+            if (IsOpen)
             {
                 if (this.Entity == null)
                 {

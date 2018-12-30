@@ -77,15 +77,20 @@ namespace BoulderDashApp.Process
                     }
                     foreach (Boulder b in Cave.Boulders)
                     {
-                        b.Move(b.Tile.Below);
+                        b.Move(b.Tile, b.Tile.Below);
                     }
                     foreach(Diamond d in Cave.Diamonds)
                     {
-                        d.Move(d.Tile.Below);
+                        d.Move(d.Tile, d.Tile.Below);
                     }
+                    //if(Cave.Rockford.DiamondCounter == Cave.Diamonds.Count)
+                    //{
+                    //    _levelData.ExitOpen = true;
+                    //}
                     Console.Clear();
                     outputView.PrintMaze(Cave.First);
                     outputView.PrintDiamondCounter(Cave.Rockford.DiamondCounter);
+                    Console.WriteLine(Cave.Diamonds.Count);
                 }
                 else
                 {

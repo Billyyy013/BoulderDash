@@ -12,6 +12,8 @@ namespace BoulderDashApp.Process
         public static int Level_width = 40;
         public static int Level_height = 22;
 
+        public bool ExitOpen { get; set; }
+
         public static char[,] Level1 = new char[22, 40]
         {
         { 'S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S' },
@@ -166,7 +168,9 @@ namespace BoulderDashApp.Process
                             t.Tile = tiles[i, j];
                             break;
                         case 'E':
-                            tiles[i, j] = new Exit();
+                            Exit exit = new Exit();
+                            tiles[i, j] = exit;
+                            this.ExitOpen = exit.IsOpen;
                             break;
                     }
                     if (Cave.First == null)
@@ -259,7 +263,9 @@ namespace BoulderDashApp.Process
                             t.Tile = tiles2[i, j];
                             break;
                         case 'E':
-                            tiles2[i, j] = new Exit();
+                            Exit exit = new Exit();
+                            tiles2[i, j] = exit;
+                            this.ExitOpen = exit.IsOpen;
                             break;
                     }
                     if (Cave.First == null)
@@ -352,7 +358,9 @@ namespace BoulderDashApp.Process
                             t.Tile = tiles3[i, j];
                             break;
                         case 'E':
-                            tiles3[i, j] = new Exit();
+                            Exit exit = new Exit();
+                            tiles3[i, j] = exit;
+                            this.ExitOpen = exit.IsOpen;
                             break;
                     }
                     if (Cave.First == null)

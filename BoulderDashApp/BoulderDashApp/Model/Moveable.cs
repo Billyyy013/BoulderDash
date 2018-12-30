@@ -8,6 +8,7 @@ namespace BoulderDashApp.Model
 {
     public abstract class Moveable : Entity
     {
-        
+        public abstract void Move(Tile tile, Tile next);
+
     }
 }

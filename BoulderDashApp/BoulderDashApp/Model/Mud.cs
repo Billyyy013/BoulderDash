@@ -36,9 +36,9 @@ namespace BoulderDashApp.Model
         //    }
         //}
 
-        public override void PlaceEntity(Entity entity, Tile next)
+        public override void PlaceEntity(Moveable entity, Tile next)
         {
-            if(entity.Symbol == 'o')
+            if(entity.Symbol == 'o' || entity.Symbol == 'D')
             {
                 return;
             }

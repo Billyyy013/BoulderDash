@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace BoulderDashApp.Model
 {
-    public class Diamond : Fallable
+    public class Diamond : Moveable
     {
         public Diamond()
         {
             Symbol = 'D';
         }
 
-        public override void Collision(Entity entity, Tile next)
+        public override void Collision(Moveable entity, Tile next)
         {
             if (entity.Symbol == '@')
             {
@@ -24,9 +24,9 @@ namespace BoulderDashApp.Model
             }
         }
 
-        public void Move(Tile tile)
+        public override void Move(Tile tile, Tile next)
         {
-            tile.PlaceEntity(this, null);
+            next.PlaceEntity(this, null);
         }
     }
 }
