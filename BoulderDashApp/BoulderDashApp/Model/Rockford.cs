@@ -8,6 +8,7 @@ namespace BoulderDashApp.Model
 {
     public class Rockford : Moveable
     {
+
         public Rockford()
         {
             Symbol = '@';

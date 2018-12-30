@@ -21,7 +21,7 @@ namespace BoulderDashApp.Process
             outputView = new View.OutputView();
             inputView = new View.InputView();
             _levelData = new LevelData();
-            _levelData.BuildMaze();
+            _levelData.BuildMaze1();
             Cave = _levelData.Cave;
             outputView.PrintMaze(Cave.First);
             MoveRockford();
@@ -61,9 +61,6 @@ namespace BoulderDashApp.Process
                             //Cave.Rockford.Tile.Above.PlaceEntity(Cave.Rockford);
                             Cave.Rockford.Move(Cave.Rockford.Tile.Above, Cave.Rockford.Tile.Above.Above);
 
-                            // in level 1 zit geen firefly, maar crasht nog steeds
-                            //Cave.Fireflys[0].Move(Cave.Fireflys[0].Tile.Left);
-                            //Cave.Boulders[0].Move(Cave.Boulders[0].Tile.Below);
                             break;
                         case ConsoleKey.DownArrow:
                             //Cave.Rockford.Tile.Below.PlaceEntity(Cave.Rockford);
@@ -82,8 +79,13 @@ namespace BoulderDashApp.Process
                     {
                         b.Move(b.Tile.Below);
                     }
+                    foreach(Diamond d in Cave.Diamonds)
+                    {
+                        d.Move(d.Tile.Below);
+                    }
                     Console.Clear();
                     outputView.PrintMaze(Cave.First);
+                    outputView.PrintDiamondCounter(Cave.Rockford.DiamondCounter);
                 }
                 else
                 {

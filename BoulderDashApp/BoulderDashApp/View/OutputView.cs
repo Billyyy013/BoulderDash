@@ -54,5 +54,10 @@ namespace BoulderDashApp.View
             Console.WriteLine();
 
         }
+
+        public void PrintDiamondCounter(int counter)
+        {
+            Console.WriteLine("DiamondCounter = " + counter);
+        }
     }
 }

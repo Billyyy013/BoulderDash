@@ -107,10 +107,11 @@ namespace BoulderDashApp.Process
             //Console.WriteLine(Level1.GetLength(0));
         }
 
-        public void BuildMaze()
+        public void BuildMaze1()
         {
             Cave = new Cave();
             Model.Tile[,] tiles = new Model.Tile[Level1.GetLength(0), Level1.GetLength(1)];
+
             for (int i = 0; i < Level1.GetLength(0); i++)
             {
                 for (int j = 0; j < Level1.GetLength(1); j++)
@@ -137,7 +138,10 @@ namespace BoulderDashApp.Process
                             break;
                         case 'D':
                             tiles[i, j] = new EmptyTIle();
-                            tiles[i, j].Entity = new Diamond();
+                            Diamond diamond = new Diamond();
+                            tiles[i, j].Entity = diamond;
+                            Cave.Diamonds.Add(diamond);
+                            diamond.Tile = tiles[i, j];
                             break;
                         case 'F':
                             tiles[i, j] = new EmptyTIle();
@@ -191,6 +195,192 @@ namespace BoulderDashApp.Process
                     if (j + 1 < Level1.GetLength(1))
                     {
                         tiles[i, j].Right = tiles[i, j + 1];
+                    }
+                }
+            }
+        }
+
+        public void BuildMaze2()
+        {
+            Cave = new Cave();
+            Tile[,] tiles2 = new Tile[Level2.GetLength(0), Level2.GetLength(1)];
+
+            for (int i = 0; i < Level2.GetLength(0); i++)
+            {
+                for (int j = 0; j < Level2.GetLength(1); j++)
+                {
+                    switch (Level2[i, j])
+                    {
+                        case 'S':
+                            tiles2[i, j] = new Steelwall();
+                            break;
+                        case 'M':
+                            tiles2[i, j] = new Mud();
+                            break;
+                        case 'B':
+                            tiles2[i, j] = new EmptyTIle();
+                            Boulder boulder = new Boulder();
+                            tiles2[i, j].Entity = boulder;
+                            Cave.Boulders.Add(boulder);
+                            boulder.Tile = tiles2[i, j];
+                            break;
+                        case 'R':
+                            tiles2[i, j] = new EmptyTIle();
+                            tiles2[i, j].Entity = Cave.Rockford;
+                            Cave.Rockford.Tile = tiles2[i, j];
+                            break;
+                        case 'D':
+                            tiles2[i, j] = new EmptyTIle();
+                            Diamond diamond = new Diamond();
+                            tiles2[i, j].Entity = diamond;
+                            Cave.Diamonds.Add(diamond);
+                            diamond.Tile = tiles2[i, j];
+                            break;
+                        case 'F':
+                            tiles2[i, j] = new EmptyTIle();
+                            Firefly firefly = new Firefly();
+                            tiles2[i, j].Entity = firefly;
+                            Cave.Fireflys.Add(firefly);
+                            firefly.Tile = tiles2[i, j];
+                            break;
+                        case ' ':
+                            tiles2[i, j] = new EmptyTIle();
+                            break;
+                        case 'W':
+                            tiles2[i, j] = new Wall();
+                            break;
+                        case 'H':
+                            tiles2[i, j] = new HardenedMud();
+                            break;
+                        case 'T':
+                            tiles2[i, j] = new EmptyTIle();
+                            TNT t = new TNT();
+                            tiles2[i, j].Entity = t;
+                            t.Tile = tiles2[i, j];
+                            break;
+                        case 'E':
+                            tiles2[i, j] = new Exit();
+                            break;
+                    }
+                    if (Cave.First == null)
+                    {
+                        Cave.First = tiles2[i, j];
+                    }
+                }
+            }
+
+            for (int i = 0; i < Level2.GetLength(0); i++)
+            {
+                for (int j = 0; j < Level2.GetLength(1); j++)
+                {
+                    if (i - 1 > -1)
+                    {
+                        tiles2[i, j].Above = tiles2[i - 1, j];
+                    }
+                    if (i + 1 < Level1.GetLength(0))
+                    {
+                        tiles2[i, j].Below = tiles2[i + 1, j];
+                    }
+                    if (j - 1 > -1)
+                    {
+                        tiles2[i, j].Left = tiles2[i, j - 1];
+                    }
+                    if (j + 1 < Level1.GetLength(1))
+                    {
+                        tiles2[i, j].Right = tiles2[i, j + 1];
+                    }
+                }
+            }
+        }
+
+        public void BuildMaze3()
+        {
+            Cave = new Cave();
+            Tile[,] tiles3 = new Tile[Level3.GetLength(0), Level3.GetLength(1)];
+
+            for (int i = 0; i < Level3.GetLength(0); i++)
+            {
+                for (int j = 0; j < Level3.GetLength(1); j++)
+                {
+                    switch (Level3[i, j])
+                    {
+                        case 'S':
+                            tiles3[i, j] = new Steelwall();
+                            break;
+                        case 'M':
+                            tiles3[i, j] = new Mud();
+                            break;
+                        case 'B':
+                            tiles3[i, j] = new EmptyTIle();
+                            Boulder boulder = new Boulder();
+                            tiles3[i, j].Entity = boulder;
+                            Cave.Boulders.Add(boulder);
+                            boulder.Tile = tiles3[i, j];
+                            break;
+                        case 'R':
+                            tiles3[i, j] = new EmptyTIle();
+                            tiles3[i, j].Entity = Cave.Rockford;
+                            Cave.Rockford.Tile = tiles3[i, j];
+                            break;
+                        case 'D':
+                            tiles3[i, j] = new EmptyTIle();
+                            Diamond diamond = new Diamond();
+                            tiles3[i, j].Entity = diamond;
+                            Cave.Diamonds.Add(diamond);
+                            diamond.Tile = tiles3[i, j];
+                            break;
+                        case 'F':
+                            tiles3[i, j] = new EmptyTIle();
+                            Firefly firefly = new Firefly();
+                            tiles3[i, j].Entity = firefly;
+                            Cave.Fireflys.Add(firefly);
+                            firefly.Tile = tiles3[i, j];
+                            break;
+                        case ' ':
+                            tiles3[i, j] = new EmptyTIle();
+                            break;
+                        case 'W':
+                            tiles3[i, j] = new Wall();
+                            break;
+                        case 'H':
+                            tiles3[i, j] = new HardenedMud();
+                            break;
+                        case 'T':
+                            tiles3[i, j] = new EmptyTIle();
+                            TNT t = new TNT();
+                            tiles3[i, j].Entity = t;
+                            t.Tile = tiles3[i, j];
+                            break;
+                        case 'E':
+                            tiles3[i, j] = new Exit();
+                            break;
+                    }
+                    if (Cave.First == null)
+                    {
+                        Cave.First = tiles3[i, j];
+                    }
+                }
+            }
+
+            for (int i = 0; i < Level3.GetLength(0); i++)
+            {
+                for (int j = 0; j < Level3.GetLength(1); j++)
+                {
+                    if (i - 1 > -1)
+                    {
+                        tiles3[i, j].Above = tiles3[i - 1, j];
+                    }
+                    if (i + 1 < Level1.GetLength(0))
+                    {
+                        tiles3[i, j].Below = tiles3[i + 1, j];
+                    }
+                    if (j - 1 > -1)
+                    {
+                        tiles3[i, j].Left = tiles3[i, j - 1];
+                    }
+                    if (j + 1 < Level1.GetLength(1))
+                    {
+                        tiles3[i, j].Right = tiles3[i, j + 1];
                     }
                 }
             }

@@ -19,10 +19,14 @@ namespace BoulderDashApp.Model
             if (entity.Symbol == '@')
             {
                 this.Move(next);
+            } else if(entity.Symbol == 'o')
+            {
+                
             }
             return;
         }
 
+        // al de move methodes die los in de entity klassen staan moeten nog overerven van 1 move klasse. die moet dus nog gemaakt worden in entity of movable
         public void Move(Tile tile)
         {
             tile.PlaceEntity(this, null);
