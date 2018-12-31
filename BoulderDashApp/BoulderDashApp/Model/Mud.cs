@@ -36,17 +36,18 @@ namespace BoulderDashApp.Model
         //    }
         //}
 
-        public override void PlaceEntity(Moveable entity, Tile next)
+        public override bool PlaceEntity(Moveable entity, Tile next)
         {
             if(entity.Symbol == 'o' || entity.Symbol == 'D')
             {
-                return;
+                return false;
             }
             if (HP == 0)
             {
                 entity.Tile.Entity = null;
                 entity.Tile = this;
                 this.Entity = entity;
+                return true;
             }
             else
             {
@@ -65,6 +66,7 @@ namespace BoulderDashApp.Model
                     this.Left.Right = emptyTIle;
                     this.Right.Left = emptyTIle;
                 }
+                return false;
             }
         }
     }

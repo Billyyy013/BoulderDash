@@ -52,6 +52,14 @@ namespace BoulderDashApp.Process
             //dit moet nog veranderd worden
             while (true)
             {
+                foreach (Boulder b in Cave.Boulders)
+                {
+                    b.Move(b.Tile, b.Tile.Below);
+                }
+                foreach (Diamond d in Cave.Diamonds)
+                {
+                    d.Move(d.Tile, d.Tile.Below);
+                }
                 ConsoleKey key = inputView.RetrieveConsoleKey();
                 if (key == ConsoleKey.UpArrow || key == ConsoleKey.DownArrow || key == ConsoleKey.LeftArrow || key == ConsoleKey.RightArrow)
                 {
@@ -75,14 +83,7 @@ namespace BoulderDashApp.Process
                             Cave.Rockford.Move(Cave.Rockford.Tile.Right, Cave.Rockford.Tile.Right.Right);
                             break;
                     }
-                    foreach (Boulder b in Cave.Boulders)
-                    {
-                        b.Move(b.Tile, b.Tile.Below);
-                    }
-                    foreach(Diamond d in Cave.Diamonds)
-                    {
-                        d.Move(d.Tile, d.Tile.Below);
-                    }
+                    
                     //if(Cave.Rockford.DiamondCounter == Cave.Diamonds.Count)
                     //{
                     //    _levelData.ExitOpen = true;

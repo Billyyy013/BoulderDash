@@ -13,9 +13,9 @@ namespace BoulderDashApp.Model
             OwnSymbol = '■';
         }
 
-        public override void PlaceEntity(Moveable entity, Tile next)
+        public override bool PlaceEntity(Moveable entity, Tile next)
         {
-            return;
+            return false;
         }
     }
 }
