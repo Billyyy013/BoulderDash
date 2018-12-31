@@ -13,5 +13,15 @@ namespace BoulderDashApp.Model
        public int DiamondCounter { get; set; }
 
        public abstract void Collision(Moveable entity, Tile next);
+
+        public abstract void Destroy();
+
+        
+        //public abstract void CollisionTNT();
+        //public abstract void CollisionRockford();
+        //public abstract void CollisionBoulder();
+        //public abstract void CollisionDiamond();
+        //public abstract void CollisionFirefly();
+
     }
 }

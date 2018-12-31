@@ -30,6 +30,46 @@ namespace BoulderDashApp.Model
             }
         }
 
+        public override void Destroy()
+        {
+            Explode();
+        }
+
+        private void Explode()
+        {
+            RedoReferences(this.Tile.Above.Left);
+            RedoReferences(this.Tile.Above);
+
+            RedoReferences(this.Tile.Left.Below);
+            RedoReferences(this.Tile.Left);
+
+            RedoReferences(this.Tile.Below.Right);
+            RedoReferences(this.Tile.Below);
+
+            RedoReferences(this.Tile.Right.Above);
+            RedoReferences(this.Tile.Right);
+        }
+
+        private void RedoReferences(Tile tile)
+        {
+            if (tile.Entity != null)
+            {
+                tile.Entity.Destroy();
+            }
+            EmptyTIle emptyTIle = new EmptyTIle();
+            emptyTIle.Left = tile.Left;
+            emptyTIle.Right = tile.Right;
+            emptyTIle.Above = tile.Above;
+            emptyTIle.Below = tile.Below;
+            emptyTIle.Entity = tile.Entity;
+            emptyTIle.Entity.Tile = emptyTIle;
+
+            tile.Above.Below = emptyTIle;
+            tile.Below.Above = emptyTIle;
+            tile.Left.Right = emptyTIle;
+            tile.Right.Left = emptyTIle;
+        }
+
         //public void Move(Tile tile)
         //{
         //    tile.PlaceEntity(this, null);

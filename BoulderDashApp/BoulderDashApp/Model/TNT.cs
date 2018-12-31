@@ -27,28 +27,49 @@ namespace BoulderDashApp.Model
             }
         }
 
+        public override void Destroy()
+        {
+            Explode();
+        }
+
         //zou moeten werken maar werkt nog niet naar behoren
         private void Explode()
         {
-            this.Tile.Above.Entity = null;
-            this.Tile.Above.Above.Entity = null;
-            this.Tile.Above = new EmptyTIle();
-            this.Tile.Above.Above = new EmptyTIle();
+            RedoReferences(this.Tile.Above.Left);
+            RedoReferences(this.Tile.Above);
 
-            this.Tile.Left.Entity = null;
-            this.Tile.Left.Left.Entity = null;
-            this.Tile.Left = new EmptyTIle();
-            this.Tile.Left.Left = new EmptyTIle();
+            RedoReferences(this.Tile.Left.Below);
+            RedoReferences(this.Tile.Left);
 
-            this.Tile.Below.Entity = null;
-            this.Tile.Below.Below.Entity = null;
-            this.Tile.Below = new EmptyTIle();
-            this.Tile.Below.Below = new EmptyTIle();
+            RedoReferences(this.Tile.Below.Right);
+            RedoReferences(this.Tile.Below);
 
-            this.Tile.Right.Entity = null;
-            this.Tile.Right.Right.Entity = null;
-            this.Tile.Right = new EmptyTIle();
-            this.Tile.Right.Right = new EmptyTIle();
+            RedoReferences(this.Tile.Right.Above);
+            RedoReferences(this.Tile.Right);
+
+            this.Tile.Entity = null;
+        }
+
+        private void RedoReferences(Tile tile)
+        {
+            if (tile.Entity != null)
+            {
+                tile.Entity.Destroy();
+            }
+            EmptyTIle emptyTIle = new EmptyTIle();
+            emptyTIle.Left = tile.Left;
+            emptyTIle.Right = tile.Right;
+            emptyTIle.Above = tile.Above;
+            emptyTIle.Below = tile.Below;
+            emptyTIle.Entity = tile.Entity;
+            if (emptyTIle.Entity != null)
+            {
+                emptyTIle.Entity.Tile = emptyTIle;
+            }
+            tile.Above.Below = emptyTIle;
+            tile.Below.Above = emptyTIle;
+            tile.Left.Right = emptyTIle;
+            tile.Right.Left = emptyTIle;
         }
     }
 }

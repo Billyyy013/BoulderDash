@@ -19,7 +19,8 @@ namespace BoulderDashApp.Model
             if (entity.Symbol == '@')
             {
                 this.Move(null, next);
-            } else if(entity.Symbol == 'o')
+            }
+            else if (entity.Symbol == 'o')
             {
                 // hier moet de eerste boulder(entity) bewogen worden oftewel van de tweede boulder afglijden.
                 //entity.Move(null, entity.Tile.Right);
@@ -27,10 +28,19 @@ namespace BoulderDashApp.Model
             return;
         }
 
+        public override void Destroy()
+        {
+            return;
+        }
+
         // al de move methodes die los in de entity klassen staan moeten nog overerven van 1 move klasse. die moet dus nog gemaakt worden
         public override void Move(Tile tile, Tile next)
         {
+
             next.PlaceEntity(this, null);
+
         }
+
+
     }
 }

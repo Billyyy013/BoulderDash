@@ -28,5 +28,11 @@ namespace BoulderDashApp.Model
         {
             next.PlaceEntity(this, null);
         }
+
+        public override void Destroy()
+        {
+            return;
+        }
+
     }
 }

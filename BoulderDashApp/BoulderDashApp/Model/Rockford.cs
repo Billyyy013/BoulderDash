@@ -19,6 +19,15 @@ namespace BoulderDashApp.Model
             
         }
 
+        public override void Destroy()
+        {
+            //MOETEN WE NOG NAAR EEN ANDERE LOCATIE VERPLAATSEN
+            Console.Clear();
+            Console.WriteLine("Rockfort Exploded. Game Over!");
+            Console.ReadLine();
+            Environment.Exit(0);
+        }
+
         //public void Move(Tile tile, Tile next)
         //{
         //    //this.Tile.Entity = null;
