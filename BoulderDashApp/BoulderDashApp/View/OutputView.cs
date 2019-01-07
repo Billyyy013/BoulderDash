@@ -26,10 +26,10 @@ namespace BoulderDashApp.View
                 while(horizontal != null)
                 {
                     Console.Write(horizontal.Symbol);
-                    horizontal = horizontal.Right;
+                    horizontal = horizontal.Tilelink.Right;
                 }
                 Console.WriteLine();
-                vertical = vertical.Below;
+                vertical = vertical.Tilelink.Below;
                 horizontal = vertical;
             }
         }

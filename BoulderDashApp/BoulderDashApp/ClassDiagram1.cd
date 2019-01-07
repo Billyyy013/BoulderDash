@@ -3,7 +3,7 @@
   <Class Name="BoulderDashApp.Model.Boulder" Collapsed="true">
     <Position X="7.75" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAABAAAAAAAAAgAAAAAA=</HashCode>
       <FileName>Model\Boulder.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -17,7 +17,7 @@
   <Class Name="BoulderDashApp.Model.Entity" Collapsed="true">
     <Position X="11.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAABAAAAAAAAAAAAACRA=</HashCode>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAABAgAAAAAAAAAAACRA=</HashCode>
       <FileName>Model\Entity.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -65,8 +65,15 @@
   </Class>
   <Class Name="BoulderDashApp.Model.Tile">
     <Position X="10.5" Y="3.5" Width="1.5" />
+    <NestedTypes>
+      <Class Name="BoulderDashApp.Model.Tile.TileLink" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Model\Tile.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>EAAAACAAAAAAAAIAAAAAAAAAABAAAAAACACAAACACAA=</HashCode>
+      <HashCode>EAAAACAAAAAAAAIAAAAAAAAAABAAAAAACICAAACACAA=</HashCode>
       <FileName>Model\Tile.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -87,7 +94,7 @@
   <Class Name="BoulderDashApp.Process.LevelData" Collapsed="true">
     <Position X="18.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AACAAAAAAQAAAADAAgAAIAAAAAAAAgABAAEAAAAAAAA=</HashCode>
+      <HashCode>AACAAAAAAQAAAAAAAAAAIAAAAAAAAAABAAEBAAAAAAA=</HashCode>
       <FileName>Process\LevelData.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -117,27 +124,6 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
       <FileName>Model\EmptyTIle.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="BoulderDashApp.Model.Fallable" Collapsed="true">
-    <Position X="8.75" Y="0.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Model\Fallable.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="BoulderDashApp.Model.Moveable" Collapsed="true">
-    <Position X="14" Y="1" Width="1.5" />
-    <InheritanceLine Type="BoulderDashApp.Model.Entity" FixedToPoint="true">
-      <Path>
-        <Point X="12.25" Y="1.062" />
-        <Point X="12.25" Y="1.438" />
-        <Point X="14" Y="1.438" />
-      </Path>
-    </InheritanceLine>
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Model\Moveable.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BoulderDashApp.Model.Cave">

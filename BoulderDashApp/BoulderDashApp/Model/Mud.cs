@@ -15,59 +15,29 @@ namespace BoulderDashApp.Model
             HP = 1;
         }
 
-        //public override bool PutEntityOnThisField(Cave cave, Tile previous, Tile next)
-        //{
-        //    if (Entity == null)
-        //    {
-        //        Entity = previous.Entity;
-        //        previous.Entity = null;
-        //        return true;
-        //    }
-        //    else
-        //    {
-        //        if (next.Entity != null) { return false; }
-        //        if (next.PutEntityOnThisField(cave, this, next))
-        //        {
-        //            Entity = previous.Entity;
-        //            previous.Entity = null;
-        //            return true;
-        //        }
-        //        return false;
-        //    }
-        //}
-
-        public override bool PlaceEntity(Moveable entity, Tile next)
+        public override bool PlaceEntity(Entity entity)
         {
-            if(entity.Symbol == 'o' || entity.Symbol == 'D')
+            if (!entity.CanDig)
             {
                 return false;
             }
+
+            HP--;
             if (HP == 0)
             {
-                entity.Tile.Entity = null;
-                entity.Tile = this;
-                this.Entity = entity;
-                return true;
-            }
-            else
-            {
-                HP--;
-                if (HP == 0)
-                {
-                    EmptyTIle emptyTIle = new EmptyTIle();
-                    emptyTIle.Left = this.Left;
-                    emptyTIle.Right = this.Right;
-                    emptyTIle.Above = this.Above;
-                    emptyTIle.Below = this.Below;
-                    emptyTIle.Entity = this.Entity;
+                EmptyTIle emptyTIle = new EmptyTIle();
+                emptyTIle.Tilelink.Left = this.Tilelink.Left;
+                emptyTIle.Tilelink.Right = this.Tilelink.Right;
+                emptyTIle.Tilelink.Above = this.Tilelink.Above;
+                emptyTIle.Tilelink.Below = this.Tilelink.Below;
+                emptyTIle.Entity = this.Entity;
 
-                    this.Above.Below = emptyTIle;
-                    this.Below.Above = emptyTIle;
-                    this.Left.Right = emptyTIle;
-                    this.Right.Left = emptyTIle;
-                }
-                return false;
+                this.Tilelink.Above.Tilelink.Below = emptyTIle;
+                this.Tilelink.Below.Tilelink.Above = emptyTIle;
+                this.Tilelink.Left.Tilelink.Right = emptyTIle;
+                this.Tilelink.Right.Tilelink.Left = emptyTIle;
             }
+            return false;
         }
     }
 }

@@ -46,13 +46,12 @@
     <Compile Include="Model\Boulder.cs" />
     <Compile Include="Model\Cave.cs" />
     <Compile Include="Model\Diamond.cs" />
+    <Compile Include="Model\Direction.cs" />
     <Compile Include="Model\EmptyTIle.cs" />
     <Compile Include="Model\Entity.cs" />
     <Compile Include="Model\Exit.cs" />
-    <Compile Include="Model\Fallable.cs" />
     <Compile Include="Model\Firefly.cs" />
     <Compile Include="Model\HardenedMud.cs" />
-    <Compile Include="Model\Moveable.cs" />
     <Compile Include="Model\Mud.cs" />
     <Compile Include="Model\Rockford.cs" />
     <Compile Include="Model\Steelwall.cs" />

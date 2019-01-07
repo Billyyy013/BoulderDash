@@ -8,20 +8,24 @@ namespace BoulderDashApp.Model
 {
     public abstract class Entity
     {
-       public virtual char Symbol { get; set; }
-       public Tile Tile { get; set; }
-       public int DiamondCounter { get; set; }
+        public virtual char Symbol { get; set; }
+        public Tile Tile { get; set; }
+        public int DiamondCounter { get; set; }
 
-       public abstract void Collision(Moveable entity, Tile next);
+        public abstract void Collision(Entity entity);
 
         public abstract void Destroy();
 
-        
-        //public abstract void CollisionTNT();
-        //public abstract void CollisionRockford();
-        //public abstract void CollisionBoulder();
-        //public abstract void CollisionDiamond();
-        //public abstract void CollisionFirefly();
+        public Direction MoveDirection { get; set; }
 
+        public abstract void Move();
+
+        public bool CanDie { get; set; }
+        
+        public bool CanDig { get; set; }
+
+        public bool CanKill { get; set; }
+
+        public bool IsCollectible { get; set; }
     }
 }

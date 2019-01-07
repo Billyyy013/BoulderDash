@@ -6,17 +6,24 @@ using System.Threading.Tasks;
 
 namespace BoulderDashApp.Model
 {
-    public class Rockford : Moveable
+    public class Rockford : Entity
     {
 
         public Rockford()
         {
             Symbol = '@';
+            CanDie = true;
+            CanDig = true;
+            CanKill = false;
+            IsCollectible = false;
         }
 
-        public override void Collision(Moveable entity, Tile next)
+        public override void Collision(Entity entity)
         {
-            
+            if (CanKill && !IsCollectible)
+            {
+                this.Destroy();
+            }
         }
 
         public override void Destroy()
@@ -28,17 +35,9 @@ namespace BoulderDashApp.Model
             Environment.Exit(0);
         }
 
-        //public void Move(Tile tile, Tile next)
-        //{
-        //    //this.Tile.Entity = null;
-        //    //this.Tile = above;
-        //    //above.Entity = this;
-        //    tile.PlaceEntity(this, next);
-        //}
-
-        public override void Move(Tile tile, Tile next)
+        public override void Move()
         {
-            tile.PlaceEntity(this, next);
+            Tile.Tilelink.GetTile(MoveDirection).PlaceEntity(this);           
         }
     }
 }

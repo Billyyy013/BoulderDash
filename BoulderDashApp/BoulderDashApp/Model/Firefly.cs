@@ -6,21 +6,27 @@ using System.Threading.Tasks;
 
 namespace BoulderDashApp.Model
 {
-    public class Firefly : Moveable
+    public class Firefly : Entity
     {
         public Firefly()
         {
+            this.MoveDirection = Direction.LEFT;
             Symbol = '◙';
+            CanDie = true;
+            CanDig = true;
+            CanKill = true;
+            IsCollectible = false;
         }
 
-        public override void Collision(Moveable entity, Tile next)
+        public override void Collision(Entity entity)
         {
-            if (entity.Symbol == 'o')
+            if (entity.CanKill)
             {
+                Explode();
                 this.Tile.Entity = null;
-                this.Tile.PlaceEntity(entity, next);
+                this.Tile.PlaceEntity(entity);
             }
-            else if (entity.Symbol == '@')
+            else if (entity.CanDig)
             {
                 //MOETEN WE NOG NAAR EEN ANDERE LOCATIE VERPLAATSEN
                 Console.Clear();
@@ -37,17 +43,17 @@ namespace BoulderDashApp.Model
 
         private void Explode()
         {
-            RedoReferences(this.Tile.Above.Left);
-            RedoReferences(this.Tile.Above);
+            RedoReferences(this.Tile.Tilelink.Above.Tilelink.Left);
+            RedoReferences(this.Tile.Tilelink.Above);
 
-            RedoReferences(this.Tile.Left.Below);
-            RedoReferences(this.Tile.Left);
+            RedoReferences(this.Tile.Tilelink.Left.Tilelink.Below);
+            RedoReferences(this.Tile.Tilelink.Left);
 
-            RedoReferences(this.Tile.Below.Right);
-            RedoReferences(this.Tile.Below);
+            RedoReferences(this.Tile.Tilelink.Below.Tilelink.Right);
+            RedoReferences(this.Tile.Tilelink.Below);
 
-            RedoReferences(this.Tile.Right.Above);
-            RedoReferences(this.Tile.Right);
+            RedoReferences(this.Tile.Tilelink.Right.Tilelink.Above);
+            RedoReferences(this.Tile.Tilelink.Right);
         }
 
         private void RedoReferences(Tile tile)
@@ -57,17 +63,17 @@ namespace BoulderDashApp.Model
                 tile.Entity.Destroy();
             }
             EmptyTIle emptyTIle = new EmptyTIle();
-            emptyTIle.Left = tile.Left;
-            emptyTIle.Right = tile.Right;
-            emptyTIle.Above = tile.Above;
-            emptyTIle.Below = tile.Below;
+            emptyTIle.Tilelink.Left = tile.Tilelink.Left;
+            emptyTIle.Tilelink.Right = tile.Tilelink.Right;
+            emptyTIle.Tilelink.Above = tile.Tilelink.Above;
+            emptyTIle.Tilelink.Below = tile.Tilelink.Below;
             emptyTIle.Entity = tile.Entity;
             emptyTIle.Entity.Tile = emptyTIle;
 
-            tile.Above.Below = emptyTIle;
-            tile.Below.Above = emptyTIle;
-            tile.Left.Right = emptyTIle;
-            tile.Right.Left = emptyTIle;
+            tile.Tilelink.Above.Tilelink.Below = emptyTIle;
+            tile.Tilelink.Below.Tilelink.Above = emptyTIle;
+            tile.Tilelink.Left.Tilelink.Right = emptyTIle;
+            tile.Tilelink.Right.Tilelink.Left = emptyTIle;
         }
 
         //public void Move(Tile tile)
@@ -75,9 +81,9 @@ namespace BoulderDashApp.Model
         //    tile.PlaceEntity(this, null);
         //}
 
-        public override void Move(Tile tile, Tile next)
+        public override void Move()
         {
-            tile.PlaceEntity(this, null);
+            Tile.Tilelink.GetTile(MoveDirection).PlaceEntity(this);
         }
     }
 }

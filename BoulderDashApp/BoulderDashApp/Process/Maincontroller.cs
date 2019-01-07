@@ -21,7 +21,7 @@ namespace BoulderDashApp.Process
             outputView = new View.OutputView();
             inputView = new View.InputView();
             _levelData = new LevelData();
-            _levelData.BuildMaze1();
+            _levelData.BuildMaze(1);
             Cave = _levelData.Cave;
             outputView.PrintMaze(Cave.First);
             MoveRockford();
@@ -54,12 +54,13 @@ namespace BoulderDashApp.Process
             {
                 foreach (Boulder b in Cave.Boulders)
                 {
-                    b.Move(b.Tile, b.Tile.Below);
+                    b.Move();
                 }
                 foreach (Diamond d in Cave.Diamonds)
                 {
-                    d.Move(d.Tile, d.Tile.Below);
+                    d.Move();
                 }
+                Rockford rockford = Cave.Rockford;
                 ConsoleKey key = inputView.RetrieveConsoleKey();
                 if (key == ConsoleKey.UpArrow || key == ConsoleKey.DownArrow || key == ConsoleKey.LeftArrow || key == ConsoleKey.RightArrow)
                 {
@@ -67,23 +68,26 @@ namespace BoulderDashApp.Process
                     {
                         case ConsoleKey.UpArrow:
                             //Cave.Rockford.Tile.Above.PlaceEntity(Cave.Rockford);
-                            Cave.Rockford.Move(Cave.Rockford.Tile.Above, Cave.Rockford.Tile.Above.Above);
-
+                            //Cave.Rockford.Move(Cave.Rockford.Tile.Tilelink.Above, Cave.Rockford.Tile.Tilelink.Above.Tilelink.Above);
+                            rockford.MoveDirection = Direction.UP;
                             break;
                         case ConsoleKey.DownArrow:
                             //Cave.Rockford.Tile.Below.PlaceEntity(Cave.Rockford);
-                            Cave.Rockford.Move(Cave.Rockford.Tile.Below, Cave.Rockford.Tile.Below.Below);
+                            //Cave.Rockford.Move(Cave.Rockford.Tile.Tilelink.Below, Cave.Rockford.Tile.Tilelink.Below.Tilelink.Below);
+                            rockford.MoveDirection = Direction.DOWN;
                             break;
                         case ConsoleKey.LeftArrow:
                             //Cave.Rockford.Tile.Left.PlaceEntity(Cave.Rockford);
-                            Cave.Rockford.Move(Cave.Rockford.Tile.Left, Cave.Rockford.Tile.Left.Left);
+                            //Cave.Rockford.Move(Cave.Rockford.Tile.Tilelink.Left, Cave.Rockford.Tile.Tilelink.Left.Tilelink.Left);
+                            rockford.MoveDirection = Direction.LEFT;
                             break;
                         case ConsoleKey.RightArrow:
                             //Cave.Rockford.Tile.Right.PlaceEntity(Cave.Rockford);
-                            Cave.Rockford.Move(Cave.Rockford.Tile.Right, Cave.Rockford.Tile.Right.Right);
+                            //Cave.Rockford.Move(Cave.Rockford.Tile.Tilelink.Right, Cave.Rockford.Tile.Tilelink.Right.Tilelink.Right);
+                            rockford.MoveDirection = Direction.RIGHT;
                             break;
                     }
-                    
+                    rockford.Move();
                     //if(Cave.Rockford.DiamondCounter == Cave.Diamonds.Count)
                     //{
                     //    _levelData.ExitOpen = true;

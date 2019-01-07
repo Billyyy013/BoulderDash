@@ -16,7 +16,7 @@ namespace BoulderDashApp.Model
             OwnSymbol = '0';
         }
 
-        public override bool PlaceEntity(Moveable entity, Tile next)
+        public override bool PlaceEntity(Entity entity)
         {
             if (IsOpen)
             {

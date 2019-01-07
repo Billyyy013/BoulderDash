@@ -32,7 +32,32 @@ namespace BoulderDashApp.Model
 
         public Entity Entity { get; set; }
 
-        public abstract bool PlaceEntity(Moveable entity, Tile next);
+        public abstract bool PlaceEntity(Entity entity);
 
+        public TileLink Tilelink { get; set; }
+
+        public Tile()
+        {
+            Tilelink = new TileLink();
+        }
+        
+        public class TileLink
+        {
+            public Tile Above { get; set; }
+            public Tile Below { get; set; }
+            public Tile Left { get; set; }
+            public Tile Right { get; set; }
+
+            public Tile GetTile(Direction dir)
+            {
+                switch (dir)
+                {
+                    case Direction.UP: return Above;
+                    case Direction.DOWN: return Below;
+                    case Direction.LEFT: return Left;
+                    default: return Right;
+                }
+            }
+        }
     }
 }

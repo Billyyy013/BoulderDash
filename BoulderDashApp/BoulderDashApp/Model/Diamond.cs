@@ -6,27 +6,32 @@ using System.Threading.Tasks;
 
 namespace BoulderDashApp.Model
 {
-    public class Diamond : Moveable
+    public class Diamond : Entity
     {
         public Diamond()
         {
+            this.MoveDirection = Direction.DOWN;
             Symbol = 'D';
+            CanDie = false;
+            CanDig = false;
+            CanKill = true;
+            IsCollectible = true;
         }
 
-        public override void Collision(Moveable entity, Tile next)
+        public override void Collision(Entity entity)
         {
-            if (entity.Symbol == '@')
+            if (entity.CanDig)
             {
                 //iets van diamonds counter ++ ofzo TODO
                 entity.DiamondCounter++;
                 this.Tile.Entity = null;
-                this.Tile.PlaceEntity(entity, next);
+                this.Tile.PlaceEntity(entity);
             }
         }
 
-        public override void Move(Tile tile, Tile next)
+        public override void Move()
         {
-            next.PlaceEntity(this, null);
+            this.Tile.Tilelink.GetTile(MoveDirection).PlaceEntity(this);
         }
 
         public override void Destroy()

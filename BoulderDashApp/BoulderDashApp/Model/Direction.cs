@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace BoulderDashApp.Model
 {
-    public abstract class Moveable : Entity
+    public enum Direction
     {
-        public abstract void Move(Tile tile, Tile next);
-
+        UP, DOWN, RIGHT, LEFT
     }
 }

@@ -14,7 +14,7 @@ namespace BoulderDashApp.Model
             OwnSymbol = '.';
         }
 
-        public override bool PlaceEntity(Moveable entity, Tile next)
+        public override bool PlaceEntity(Entity entity)
         {
             if (this.Entity == null)
             {
@@ -25,7 +25,7 @@ namespace BoulderDashApp.Model
             }
             else
             {
-                this.Entity.Collision(entity, next);
+                this.Entity.Collision(entity);
                 return false;
             }
         }
