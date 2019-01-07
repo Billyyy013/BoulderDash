@@ -24,8 +24,12 @@ namespace BoulderDashApp.Model
             if (entity.CanDig)
             {
                 MoveDirection = entity.MoveDirection;
-                this.Move();
+                if (this.Move())
+                {
+                    entity.Move();
+                }
                 MoveDirection = Direction.DOWN;
+
             }
             return;
         }
@@ -36,14 +40,14 @@ namespace BoulderDashApp.Model
         }
 
         // al de move methodes die los in de entity klassen staan moeten nog overerven van 1 move klasse. die moet dus nog gemaakt worden
-        public override void Move()
+        public override bool Move()
         {
-            this.Tile.Tilelink.GetTile(MoveDirection).PlaceEntity(this);
-            
-                //if (this.Tile.Tilelink.Below.Entity != null)
-                //{
-                //    FallSideWays(this.Tile.Tilelink.GetTile(MoveDirection));
-                //}
+            return this.Tile.Tilelink.GetTile(MoveDirection).PlaceEntity(this);
+
+            //if (this.Tile.Tilelink.Below.Entity != null)
+            //{
+            //    FallSideWays(this.Tile.Tilelink.GetTile(MoveDirection));
+            //}
         }
 
         private void FallSideWays(Tile tile)

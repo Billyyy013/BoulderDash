@@ -18,7 +18,7 @@ namespace BoulderDashApp.Model
 
         public Direction MoveDirection { get; set; }
 
-        public abstract void Move();
+        public abstract bool Move();
 
         public bool CanDie { get; set; }
         

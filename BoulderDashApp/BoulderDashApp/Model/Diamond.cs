@@ -29,9 +29,9 @@ namespace BoulderDashApp.Model
             }
         }
 
-        public override void Move()
+        public override bool Move()
         {
-            this.Tile.Tilelink.GetTile(MoveDirection).PlaceEntity(this);
+            return this.Tile.Tilelink.GetTile(MoveDirection).PlaceEntity(this);
         }
 
         public override void Destroy()

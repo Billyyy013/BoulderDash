@@ -81,9 +81,9 @@ namespace BoulderDashApp.Model
         //    tile.PlaceEntity(this, null);
         //}
 
-        public override void Move()
+        public override bool Move()
         {
-            Tile.Tilelink.GetTile(MoveDirection).PlaceEntity(this);
+            return Tile.Tilelink.GetTile(MoveDirection).PlaceEntity(this);
         }
     }
 }
