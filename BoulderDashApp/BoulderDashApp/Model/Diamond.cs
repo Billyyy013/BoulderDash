@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BoulderDashApp.Model
 {
-    public class Diamond : Entity
+    public class Diamond : Fallable
     {
         public Diamond()
         {
@@ -29,10 +29,10 @@ namespace BoulderDashApp.Model
             }
         }
 
-        public override bool Move()
-        {
-            return this.Tile.Tilelink.GetTile(MoveDirection).PlaceEntity(this);
-        }
+        //public override bool Move()
+        //{
+        //    return this.Tile.Tilelink.GetTile(MoveDirection).PlaceEntity(this);
+        //}
 
         public override void Destroy()
         {

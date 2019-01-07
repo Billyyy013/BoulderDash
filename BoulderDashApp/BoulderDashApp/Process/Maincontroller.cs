@@ -60,23 +60,15 @@ namespace BoulderDashApp.Process
                     switch (key)
                     {
                         case ConsoleKey.UpArrow:
-                            //Cave.Rockford.Tile.Above.PlaceEntity(Cave.Rockford);
-                            //Cave.Rockford.Move(Cave.Rockford.Tile.Tilelink.Above, Cave.Rockford.Tile.Tilelink.Above.Tilelink.Above);
                             rockford.MoveDirection = Direction.UP;
                             break;
                         case ConsoleKey.DownArrow:
-                            //Cave.Rockford.Tile.Below.PlaceEntity(Cave.Rockford);
-                            //Cave.Rockford.Move(Cave.Rockford.Tile.Tilelink.Below, Cave.Rockford.Tile.Tilelink.Below.Tilelink.Below);
                             rockford.MoveDirection = Direction.DOWN;
                             break;
                         case ConsoleKey.LeftArrow:
-                            //Cave.Rockford.Tile.Left.PlaceEntity(Cave.Rockford);
-                            //Cave.Rockford.Move(Cave.Rockford.Tile.Tilelink.Left, Cave.Rockford.Tile.Tilelink.Left.Tilelink.Left);
                             rockford.MoveDirection = Direction.LEFT;
                             break;
                         case ConsoleKey.RightArrow:
-                            //Cave.Rockford.Tile.Right.PlaceEntity(Cave.Rockford);
-                            //Cave.Rockford.Move(Cave.Rockford.Tile.Tilelink.Right, Cave.Rockford.Tile.Tilelink.Right.Tilelink.Right);
                             rockford.MoveDirection = Direction.RIGHT;
                             break;
                     }

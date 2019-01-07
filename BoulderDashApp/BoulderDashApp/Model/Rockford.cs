@@ -20,7 +20,7 @@ namespace BoulderDashApp.Model
 
         public override void Collision(Entity entity)
         {
-            if (CanKill && !IsCollectible)
+            if (entity.CanKill && !entity.IsCollectible)
             {
                 this.Destroy();
             }

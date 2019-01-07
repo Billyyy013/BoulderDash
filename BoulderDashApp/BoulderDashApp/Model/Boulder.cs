@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BoulderDashApp.Model
 {
-    public class Boulder : Entity
+    public class Boulder : Fallable
     {
         public Boulder()
         {
@@ -24,7 +24,7 @@ namespace BoulderDashApp.Model
             if (entity.CanDig)
             {
                 MoveDirection = entity.MoveDirection;
-                if (this.Move())
+                if (this.Tile.Tilelink.GetTile(MoveDirection).PlaceEntity(this))
                 {
                     entity.Move();
                 }
@@ -40,18 +40,18 @@ namespace BoulderDashApp.Model
         }
 
         // al de move methodes die los in de entity klassen staan moeten nog overerven van 1 move klasse. die moet dus nog gemaakt worden
-        public override bool Move()
-        {
-            return this.Tile.Tilelink.GetTile(MoveDirection).PlaceEntity(this);
+        //public override bool Move()
+        //{
+        //    return this.Tile.Tilelink.GetTile(MoveDirection).PlaceEntity(this);
 
-            //if (this.Tile.Tilelink.Below.Entity != null)
-            //{
-            //    FallSideWays(this.Tile.Tilelink.GetTile(MoveDirection));
-            //}
-        }
+        //    //if (this.Tile.Tilelink.Below.Entity != null)
+        //    //{
+        //    //    FallSideWays(this.Tile.Tilelink.GetTile(MoveDirection));
+        //    //}
+        //}
 
-        private void FallSideWays(Tile tile)
-        {
+        //private void FallSideWays(Tile tile)
+        //{
             //    if (this.Tile.Left.Entity == null && this.Tile.Left.Below.Entity == null)
             //    {
             //        if (this.Tile.Left.PlaceEntity(this, null))
@@ -72,6 +72,6 @@ namespace BoulderDashApp.Model
             //            }
             //        }
             //    }
-        }
+        //}
     }
 }

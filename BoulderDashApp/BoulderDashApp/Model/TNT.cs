@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BoulderDashApp.Model
 {
-    public class TNT : Entity
+    public class TNT : Fallable
     {
         public TNT()
         {
@@ -37,10 +37,10 @@ namespace BoulderDashApp.Model
             Explode();
         }
 
-        public override bool Move()
-        {
-            return this.Tile.Tilelink.GetTile(MoveDirection).PlaceEntity(this);
-        }
+        //public override bool Move()
+        //{
+        //    return this.Tile.Tilelink.GetTile(MoveDirection).PlaceEntity(this);
+        //}
 
         private void Explode()
         {
@@ -69,7 +69,10 @@ namespace BoulderDashApp.Model
             emptyTIle.Tilelink.Above = tile.Tilelink.Above;
             emptyTIle.Tilelink.Below = tile.Tilelink.Below;
             emptyTIle.Entity = tile.Entity;
-            emptyTIle.Entity.Tile = emptyTIle;
+            if (emptyTIle.Entity != null)
+            {
+                emptyTIle.Entity.Tile = emptyTIle;
+            }
 
             tile.Tilelink.Above.Tilelink.Below = emptyTIle;
             tile.Tilelink.Below.Tilelink.Above = emptyTIle;
