@@ -185,7 +185,6 @@ namespace BoulderDashApp.Process
             {
                 for (int j = 0; j < level.GetLength(1); j++)
                 {
-                    tiles[i, j].Tilelink = new Tile.TileLink();
                     if (i - 1 > -1)
                     {
                         tiles[i, j].Tilelink.Above = tiles[i - 1, j];

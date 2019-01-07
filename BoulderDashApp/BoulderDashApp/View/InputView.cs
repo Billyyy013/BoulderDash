@@ -23,5 +23,11 @@ namespace BoulderDashApp.View
         {
             Console.Write("Invalide input");
         }
+
+        public int AskForLevelNumber()
+        {
+            Console.WriteLine("Press 1 - 3 to start a level");
+            return Int32.Parse(Console.ReadLine());
+        }
     }
 }

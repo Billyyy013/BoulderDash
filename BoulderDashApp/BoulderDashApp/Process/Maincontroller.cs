@@ -21,7 +21,7 @@ namespace BoulderDashApp.Process
             outputView = new View.OutputView();
             inputView = new View.InputView();
             _levelData = new LevelData();
-            _levelData.BuildMaze(1);
+            _levelData.BuildMaze(inputView.AskForLevelNumber());
             Cave = _levelData.Cave;
             outputView.PrintMaze(Cave.First);
             MoveRockford();

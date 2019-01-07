@@ -11,7 +11,7 @@ namespace BoulderDashApp.Model
         public Firefly()
         {
             this.MoveDirection = Direction.LEFT;
-            Symbol = '◙';
+            Symbol = 'F';
             CanDie = true;
             CanDig = true;
             CanKill = true;
