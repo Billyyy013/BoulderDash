@@ -19,7 +19,7 @@ namespace BoulderDashApp.Model
             if (this.IsDestroyed) { return false; }
 
             MoveDirection = Direction.DOWN;
-            if (!this.Tile.Tilelink.GetTile(MoveDirection).PlaceEntity(this) )
+            if (!this.Tile.Tilelink.GetTile(MoveDirection).PlaceEntity(this))
             {
                 if (Tile.Tilelink.Below.Entity != null)
                 {
@@ -29,7 +29,7 @@ namespace BoulderDashApp.Model
             }
             return true;
         }
-        private bool FallSideWays()
+        protected bool FallSideWays()
         {
             if (!Tile.Tilelink.Below.Entity.CanDie)
             {
@@ -43,7 +43,7 @@ namespace BoulderDashApp.Model
             }
             return false;
         }
-        private bool Fall(Direction d)
+        protected bool Fall(Direction d)
         {
             bool canKill = this.CanKill;
             this.CanKill = false;

@@ -8,6 +8,7 @@ namespace BoulderDashApp.Model
 {
     public class TNT : Fallable
     {
+        private bool hasFallen = false;
         public TNT()
         {
             Symbol = 'T';
@@ -41,6 +42,24 @@ namespace BoulderDashApp.Model
         //{
         //    return this.Tile.Tilelink.GetTile(MoveDirection).PlaceEntity(this);
         //}
+
+        public override bool Move()
+        {
+            if (this.IsDestroyed) { return false; }
+
+            MoveDirection = Direction.DOWN;
+            if (!this.Tile.Tilelink.GetTile(MoveDirection).PlaceEntity(this))
+            {
+                if (hasFallen) { Explode(); return false; }
+                if (Tile.Tilelink.Below.Entity != null)
+                {
+                    return FallSideWays();
+                }
+                return false;
+            }
+            hasFallen = true;
+            return true;
+        }
 
         private void Explode()
         {
