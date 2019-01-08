@@ -73,14 +73,7 @@ namespace BoulderDashApp.Process
                             break;
                     }
                     rockford.Move();
-                    foreach (Boulder b in Cave.Boulders)
-                    {
-                        b.Move();
-                    }
-                    foreach (Diamond d in Cave.Diamonds)
-                    {
-                        d.Move();
-                    }
+                    Cave.MoveMovables();
                     //if(Cave.Rockford.DiamondCounter == Cave.Diamonds.Count)
                     //{
                     //    _levelData.ExitOpen = true;

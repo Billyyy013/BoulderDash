@@ -23,6 +23,7 @@ namespace BoulderDashApp.Model
             {
                 this.Tile.Entity = null;
                 this.Tile.PlaceEntity(entity);
+                this.IsDestroyed = true;
             }
             else
             {
@@ -54,6 +55,9 @@ namespace BoulderDashApp.Model
 
             RedoReferences(this.Tile.Tilelink.Right.Tilelink.Above);
             RedoReferences(this.Tile.Tilelink.Right);
+
+            this.Tile.Entity = null;
+            this.IsDestroyed = true;
         }
 
         private void RedoReferences(Tile tile)

@@ -25,6 +25,7 @@ namespace BoulderDashApp.Model
                 Explode();
                 this.Tile.Entity = null;
                 this.Tile.PlaceEntity(entity);
+                this.IsDestroyed = true;
             }
             else if (entity.CanDig)
             {
@@ -54,6 +55,8 @@ namespace BoulderDashApp.Model
 
             RedoReferences(this.Tile.Tilelink.Right.Tilelink.Above);
             RedoReferences(this.Tile.Tilelink.Right);
+            this.IsDestroyed = true;
+            this.Tile.Entity = null;
         }
 
         private void RedoReferences(Tile tile)
@@ -74,15 +77,13 @@ namespace BoulderDashApp.Model
             tile.Tilelink.Below.Tilelink.Above = emptyTIle;
             tile.Tilelink.Left.Tilelink.Right = emptyTIle;
             tile.Tilelink.Right.Tilelink.Left = emptyTIle;
+            
         }
 
-        //public void Move(Tile tile)
-        //{
-        //    tile.PlaceEntity(this, null);
-        //}
 
         public override bool Move()
         {
+            if (this.IsDestroyed) { return false; }
             return Tile.Tilelink.GetTile(MoveDirection).PlaceEntity(this);
         }
     }

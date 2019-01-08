@@ -11,10 +11,13 @@ namespace BoulderDashApp.Model
         public Fallable()
         {
             this.MoveDirection = Direction.DOWN;
+            
         }
 
         public override bool Move()
         {
+            if (this.IsDestroyed) { return false; }
+
             MoveDirection = Direction.DOWN;
             if (!this.Tile.Tilelink.GetTile(MoveDirection).PlaceEntity(this) )
             {

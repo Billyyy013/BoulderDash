@@ -25,13 +25,9 @@ namespace BoulderDashApp.Model
                 entity.DiamondCounter++;
                 this.Tile.Entity = null;
                 this.Tile.PlaceEntity(entity);
+                this.IsDestroyed = true;
             }
         }
-
-        //public override bool Move()
-        //{
-        //    return this.Tile.Tilelink.GetTile(MoveDirection).PlaceEntity(this);
-        //}
 
         public override void Destroy()
         {

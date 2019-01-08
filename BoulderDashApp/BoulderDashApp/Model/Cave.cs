@@ -12,24 +12,23 @@ namespace BoulderDashApp.Model
 
         public Tile First { get; set; }
 
-        public List<Firefly> Fireflys { get; set; }
         public List<Diamond> Diamonds { get; }
-        public List<Boulder> Boulders { get; set; }
+
+        public List<Entity> Movables { get; set; }
 
         public Cave()
         {
             Rockford = new Rockford();
-            Boulders = new List<Boulder>();
-            Fireflys = new List<Firefly>();
             Diamonds = new List<Diamond>();
+            Movables = new List<Entity>();
         }
 
-        //internal void MoveFireflys()
-        //{
-        //    foreach (Firefly f in Fireflys)
-        //    {
-        //        f.Move();
-        //    }
-        //}
+        public void MoveMovables()
+        {
+            foreach (Entity e in Movables)
+            {
+                e.Move();
+            }
+        }
     }
 }

@@ -12,6 +12,11 @@ namespace BoulderDashApp.Model
         public Tile Tile { get; set; }
         public int DiamondCounter { get; set; }
 
+        public Entity()
+        {
+            IsDestroyed = false;
+        }
+
         public abstract void Collision(Entity entity);
 
         public abstract void Destroy();
@@ -27,5 +32,7 @@ namespace BoulderDashApp.Model
         public bool CanKill { get; set; }
 
         public bool IsCollectible { get; set; }
+
+        public bool IsDestroyed { get; set; }
     }
 }

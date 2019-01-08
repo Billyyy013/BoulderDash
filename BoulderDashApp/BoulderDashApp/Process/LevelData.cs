@@ -131,7 +131,7 @@ namespace BoulderDashApp.Process
                             tiles[i, j] = new EmptyTIle();
                             Boulder boulder = new Boulder();
                             tiles[i, j].Entity = boulder;
-                            Cave.Boulders.Add(boulder);
+                            Cave.Movables.Add(boulder);
                             boulder.Tile = tiles[i, j];
                             break;
                         case 'R':
@@ -143,6 +143,7 @@ namespace BoulderDashApp.Process
                             tiles[i, j] = new EmptyTIle();
                             Diamond diamond = new Diamond();
                             tiles[i, j].Entity = diamond;
+                            Cave.Movables.Add(diamond);
                             Cave.Diamonds.Add(diamond);
                             diamond.Tile = tiles[i, j];
                             break;
@@ -150,7 +151,7 @@ namespace BoulderDashApp.Process
                             tiles[i, j] = new EmptyTIle();
                             Firefly firefly = new Firefly();
                             tiles[i, j].Entity = firefly;
-                            Cave.Fireflys.Add(firefly);
+                            Cave.Movables.Add(firefly);
                             firefly.Tile = tiles[i, j];
                             break;
                         case ' ':
@@ -167,6 +168,7 @@ namespace BoulderDashApp.Process
                             TNT t = new TNT();
                             tiles[i, j].Entity = t;
                             t.Tile = tiles[i, j];
+                            Cave.Movables.Add(t);
                             break;
                         case 'E':
                             Exit exit = new Exit();
