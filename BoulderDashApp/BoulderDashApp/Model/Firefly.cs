@@ -30,10 +30,11 @@ namespace BoulderDashApp.Model
             else if (entity.CanDig)
             {
                 //MOETEN WE NOG NAAR EEN ANDERE LOCATIE VERPLAATSEN
-                Console.Clear();
-                Console.WriteLine("Rockfort hit a Firefly. Game Over!");
-                Console.ReadLine();
-                Environment.Exit(0);
+                entity.IsDestroyed = true;
+                //Console.Clear();
+                //Console.WriteLine("Rockfort hit a Firefly. Game Over!");
+                //Console.ReadLine();
+                //Environment.Exit(0);
             }
         }
 

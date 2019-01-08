@@ -39,6 +39,11 @@ namespace BoulderDashApp.Process
                 {
                     //eerst de Rockford 1 stap
                     MoveRockford();
+                    if (Cave.Rockford.IsDestroyed)
+                    {
+                        outputView.RockfordIsKilledMessage();
+                        return;
+                    }
                     //Check if all diamonds are collected
                     if (Cave.Rockford.DiamondCounter == Cave.Diamonds.Count)
                     {
@@ -49,6 +54,11 @@ namespace BoulderDashApp.Process
                     }
                     //daarna de movables 1 stap
                     Cave.MoveMovables();
+                    if (Cave.Rockford.IsDestroyed)
+                    {
+                        outputView.RockfordIsKilledMessage();
+                        return;
+                    }
                     //view stuff dat hier niet hoort
                     Console.Clear();
                     outputView.PrintMaze(Cave.First);

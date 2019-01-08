@@ -55,6 +55,12 @@ namespace BoulderDashApp.View
 
         }
 
+        internal void RockfordIsKilledMessage()
+        {
+            
+            Console.WriteLine("Rockfort died. Game Over!");
+        }
+
         public void PrintDiamondCounter(int counter)
         {
             Console.WriteLine("DiamondCounter = " + counter);
