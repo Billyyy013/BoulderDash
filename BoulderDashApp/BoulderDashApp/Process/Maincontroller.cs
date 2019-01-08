@@ -30,17 +30,35 @@ namespace BoulderDashApp.Process
 
         public void Game()
         {
-            //3 stappen per "seconde"
-            //dit is een seconde
-            for (int i = 0; i < 3; i++)
+            bool gameFinished = false;
+            int seconds = 0;
+            while (!gameFinished)
+                //3 stappen per "seconde"
+                //dit is een seconde
+                for (int i = 0; i < 3; i++)
+                {
+                    //eerst de Rockford 1 stap
+                    MoveRockford();
+                    //daarna de movables 1 stap
+                    Cave.MoveMovables();
+                    //view stuff dat hier niet hoort
+                    Console.Clear();
+                    outputView.PrintMaze(Cave.First);
+                    outputView.PrintDiamondCounter(Cave.Rockford.DiamondCounter);
+                    Console.WriteLine(Cave.Diamonds.Count);
+                }
+            seconds++;
+            if (seconds == 30)
             {
-                //eerst de Rockford 1 stap
-                MoveRockford();
-                //daarna de fireflys 1 stap
-                //Cave.MoveFireflys();
+                //laat tnt exploderen of geef door en laat ergens anders gebeuren
             }
-            
+
         }
+
+        //if(Cave.Rockford.DiamondCounter == Cave.Diamonds.Count)
+        //{
+        //    _levelData.ExitOpen = true;
+        //}
 
         public void MoveRockford()
         {
@@ -50,9 +68,10 @@ namespace BoulderDashApp.Process
             inputView.AskForArrowInput();
 
             //dit moet nog veranderd worden
-            while (true)
+            bool correctInput = false;
+            while (!correctInput)
             {
-                
+
                 Rockford rockford = Cave.Rockford;
                 ConsoleKey key = inputView.RetrieveConsoleKey();
                 if (key == ConsoleKey.UpArrow || key == ConsoleKey.DownArrow || key == ConsoleKey.LeftArrow || key == ConsoleKey.RightArrow)
@@ -73,15 +92,8 @@ namespace BoulderDashApp.Process
                             break;
                     }
                     rockford.Move();
-                    Cave.MoveMovables();
-                    //if(Cave.Rockford.DiamondCounter == Cave.Diamonds.Count)
-                    //{
-                    //    _levelData.ExitOpen = true;
-                    //}
-                    Console.Clear();
-                    outputView.PrintMaze(Cave.First);
-                    outputView.PrintDiamondCounter(Cave.Rockford.DiamondCounter);
-                    Console.WriteLine(Cave.Diamonds.Count);
+
+                    correctInput = true;
                 }
                 else
                 {
