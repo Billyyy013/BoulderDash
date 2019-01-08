@@ -9,7 +9,6 @@ namespace BoulderDashApp.View
 {
     class OutputView
     {
-
         public OutputView()
         {
             PrintWelcomeMessage();
