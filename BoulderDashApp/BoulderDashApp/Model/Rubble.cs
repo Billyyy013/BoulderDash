@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace BoulderDashApp.Model
 {
-    public class Rubble : Entity
+    public class Rubble : Fallable
     {
+        public Rubble()
+        {
+            Symbol = 'R';
+        }
+
         public override void Collision(Entity entity)
         {
-            throw new NotImplementedException();
+            this.Tile.Entity = null;
         }
 
         public override void Destroy()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override bool Move()
         {
             throw new NotImplementedException();
         }

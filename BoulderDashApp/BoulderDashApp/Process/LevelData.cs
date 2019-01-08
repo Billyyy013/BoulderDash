@@ -160,7 +160,8 @@ namespace BoulderDashApp.Process
                             tiles[i, j] = new Wall();
                             break;
                         case 'H':
-                            tiles[i, j] = new HardenedMud();
+                            HardenedMud hardenedMud = new HardenedMud();
+                            tiles[i, j] = hardenedMud;
                             break;
                         case 'T':
                             tiles[i, j] = new EmptyTIle();
