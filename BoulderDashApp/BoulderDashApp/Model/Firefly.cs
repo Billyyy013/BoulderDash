@@ -61,7 +61,10 @@ namespace BoulderDashApp.Model
             {
                 if (tile.Entity != null)
                 {
-                    tile.Entity.Destroy();
+                    if (!tile.Entity.IsDestroyed)
+                    {
+                        tile.Entity.Destroy();
+                    }
                 }
                 EmptyTIle emptyTIle = new EmptyTIle();
                 emptyTIle.Tilelink.Left = tile.Tilelink.Left;
