@@ -41,6 +41,7 @@ namespace BoulderDashApp.Model
         private void Explode()
         {
             this.IsDestroyed = true;
+            this.Tile.Entity = null;
             RedoReferences(this.Tile.Tilelink.Above.Tilelink.Left);
             RedoReferences(this.Tile.Tilelink.Above);
 
@@ -53,7 +54,7 @@ namespace BoulderDashApp.Model
             RedoReferences(this.Tile.Tilelink.Right.Tilelink.Above);
             RedoReferences(this.Tile.Tilelink.Right);
             
-            this.Tile.Entity = null;
+          
         }
 
         private void RedoReferences(Tile tile)
