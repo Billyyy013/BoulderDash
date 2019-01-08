@@ -15,7 +15,7 @@ namespace BoulderDashApp.View
             PrintWelcomeMessage();
         }
 
-        public void PrintMaze(Tile first)
+        public void PrintMaze(Tile first, int counter, int dias)
         {
             Console.Clear();
             Console.WriteLine();
@@ -33,6 +33,7 @@ namespace BoulderDashApp.View
                 vertical = vertical.Tilelink.Below;
                 horizontal = vertical;
             }
+            PrintDiamondCounter(counter, dias);
         }
 
         public void PrintWelcomeMessage()

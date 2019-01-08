@@ -29,12 +29,7 @@ namespace BoulderDashApp.Model
             }
             else if (entity.CanDig)
             {
-                //MOETEN WE NOG NAAR EEN ANDERE LOCATIE VERPLAATSEN
                 entity.IsDestroyed = true;
-                //Console.Clear();
-                //Console.WriteLine("Rockfort hit a Firefly. Game Over!");
-                //Console.ReadLine();
-                //Environment.Exit(0);
             }
         }
 
@@ -90,6 +85,7 @@ namespace BoulderDashApp.Model
         public override bool Move()
         {
             if (this.IsDestroyed) { return false; }
+            if (checkForRockford()) { return false; }
             Direction currentDirection = MoveDirection;
             MoveDirection = GetLeft(currentDirection);
             if (!Tile.Tilelink.GetTile(MoveDirection).PlaceEntity(this))
@@ -98,11 +94,45 @@ namespace BoulderDashApp.Model
                 if (!Tile.Tilelink.GetTile(MoveDirection).PlaceEntity(this))
                 {
                     MoveDirection = GetRight(currentDirection);
-                    return Tile.Tilelink.GetTile(MoveDirection).PlaceEntity(this);
+                    bool i = Tile.Tilelink.GetTile(MoveDirection).PlaceEntity(this);
+                    if (checkForRockford()) { return false; }
+                    return i;
                 }
+
+                if (checkForRockford()) { return false; }
                 return true;
             }
+
+            if (checkForRockford()) { return false; }
             return true;
+        }
+
+        private bool checkForRockford()
+        {
+            if (checkForRockford(Tile.Tilelink.Above) || 
+                checkForRockford(Tile.Tilelink.Below) ||
+                checkForRockford(Tile.Tilelink.Left) ||
+                checkForRockford(Tile.Tilelink.Right))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private bool checkForRockford(Tile tile)
+        {
+            if (tile.Entity != null)
+            {
+                if (tile.Entity.CanDig)
+                {
+                    Explode();
+                    return true;
+                }
+            }
+            return false;
         }
 
         private Direction GetLeft(Direction d)

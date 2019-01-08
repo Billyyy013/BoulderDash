@@ -21,7 +21,6 @@ namespace BoulderDashApp.Model
         {
             if (entity.CanDig)
             {
-                //iets van diamonds counter ++ ofzo TODO
                 entity.DiamondCounter++;
                 this.Tile.Entity = null;
                 this.Tile.PlaceEntity(entity);

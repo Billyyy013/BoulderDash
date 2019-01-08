@@ -29,7 +29,6 @@ namespace BoulderDashApp.Model
             }
             else
             {
-                // 30 seconden moeten nog geimplementeerd worden en als het ergens op valt moet het ook expoderen
                 Explode();
             }
         }
@@ -38,11 +37,6 @@ namespace BoulderDashApp.Model
         {
             Explode();
         }
-
-        //public override bool Move()
-        //{
-        //    return this.Tile.Tilelink.GetTile(MoveDirection).PlaceEntity(this);
-        //}
 
         public override bool Move()
         {

@@ -8,8 +8,6 @@ namespace BoulderDashApp.Model
 {
     public class Exit : Tile
     {
-        // als alle diamonds gevonden zijn moet de exit pas open gaan, geen idee hoe we dat doen op een polymorfe manier.
-        // ownsymbol moet nog aangepast worden maar voor testredenen op 0 gezet.
         public bool IsOpen { get; set; }
         public Exit()
         {
@@ -27,7 +25,7 @@ namespace BoulderDashApp.Model
                     entity.Tile.Entity = null;
                     entity.Tile = this;
                     this.Entity = entity;
-                    //Spel is afgelopen
+                    //Spel is afgelopen VERPLAATSEN TODO
                     Console.Clear();
                     Console.WriteLine("Gefeliciflapstaart je hebt gewonnen");
                     Console.ReadLine();

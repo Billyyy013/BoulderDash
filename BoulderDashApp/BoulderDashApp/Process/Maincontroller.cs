@@ -23,7 +23,7 @@ namespace BoulderDashApp.Process
             _levelData = new LevelData();
             _levelData.BuildMaze(inputView.AskForLevelNumber());
             Cave = _levelData.Cave;
-            outputView.PrintMaze(Cave.First);
+            outputView.PrintMaze(Cave.First, Cave.Rockford.DiamondCounter, Cave.AmountOfDiamonds);
             Game();
             Console.ReadLine();
         }
@@ -38,6 +38,7 @@ namespace BoulderDashApp.Process
                 MoveRockford();
                 if (Cave.Rockford.IsDestroyed)
                 {
+                    outputView.PrintMaze(Cave.First, Cave.Rockford.DiamondCounter, Cave.AmountOfDiamonds);
                     outputView.RockfordIsKilledMessage();
                     return;
                 }
@@ -53,14 +54,14 @@ namespace BoulderDashApp.Process
                 Cave.MoveMovables();
                 if (Cave.Rockford.IsDestroyed)
                 {
+                    outputView.PrintMaze(Cave.First, Cave.Rockford.DiamondCounter, Cave.AmountOfDiamonds);
                     outputView.RockfordIsKilledMessage();
                     return;
                 }
                 
                 //view stuff dat hier niet hoort
                 
-                outputView.PrintMaze(Cave.First);
-                outputView.PrintDiamondCounter(Cave.Rockford.DiamondCounter, Cave.AmountOfDiamonds);
+                outputView.PrintMaze(Cave.First, Cave.Rockford.DiamondCounter, Cave.AmountOfDiamonds);
                 
 
             }

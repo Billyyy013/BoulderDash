@@ -28,12 +28,8 @@ namespace BoulderDashApp.Model
 
         public override void Destroy()
         {
-            //MOETEN WE NOG NAAR EEN ANDERE LOCATIE VERPLAATSEN
-            //Console.Clear();
-            //Console.WriteLine("Rockfort died. Game Over!");
-            //Console.ReadLine();
-            //Environment.Exit(0);
             IsDestroyed = true;
+            this.Tile.Entity = null;
         }
 
         public override bool Move()
