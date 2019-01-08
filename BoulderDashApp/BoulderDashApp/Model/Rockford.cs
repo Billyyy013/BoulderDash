@@ -30,7 +30,7 @@ namespace BoulderDashApp.Model
         {
             //MOETEN WE NOG NAAR EEN ANDERE LOCATIE VERPLAATSEN
             Console.Clear();
-            Console.WriteLine("Rockfort Exploded. Game Over!");
+            Console.WriteLine("Rockfort died. Game Over!");
             Console.ReadLine();
             Environment.Exit(0);
         }
