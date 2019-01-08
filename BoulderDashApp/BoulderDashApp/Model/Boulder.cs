@@ -20,7 +20,7 @@ namespace BoulderDashApp.Model
         public override void Collision(Entity entity)
         {
             //een rockford kan een boulder 1 plaats opschuiven
-            if (entity.CanDig)
+            if (entity.CanDig && entity.MoveDirection == Direction.LEFT || entity.CanDig && entity.MoveDirection == Direction.RIGHT)
             {
                 MoveDirection = entity.MoveDirection;
                 if (this.Tile.Tilelink.GetTile(MoveDirection).PlaceEntity(this))
