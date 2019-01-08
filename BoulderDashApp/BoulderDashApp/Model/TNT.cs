@@ -64,6 +64,7 @@ namespace BoulderDashApp.Model
 
         private void Explode()
         {
+            if (this.IsDestroyed) { return; }
             RedoReferences(this.Tile.Tilelink.Above.Tilelink.Left);
             RedoReferences(this.Tile.Tilelink.Above);
 
