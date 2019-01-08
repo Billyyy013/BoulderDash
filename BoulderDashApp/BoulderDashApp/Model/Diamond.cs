@@ -10,7 +10,6 @@ namespace BoulderDashApp.Model
     {
         public Diamond()
         {
-            this.MoveDirection = Direction.DOWN;
             Symbol = 'D';
             CanDie = false;
             CanDig = false;

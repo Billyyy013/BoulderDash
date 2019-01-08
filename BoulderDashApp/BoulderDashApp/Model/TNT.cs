@@ -10,7 +10,6 @@ namespace BoulderDashApp.Model
     {
         public TNT()
         {
-            this.MoveDirection = Direction.DOWN;
             Symbol = 'T';
             CanDie = false;
             CanDig = false;

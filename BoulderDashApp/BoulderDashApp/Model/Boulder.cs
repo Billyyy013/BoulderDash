@@ -10,7 +10,6 @@ namespace BoulderDashApp.Model
     {
         public Boulder()
         {
-            this.MoveDirection = Direction.DOWN;
             Symbol = 'o';
             CanDie = false;
             CanDig = false;

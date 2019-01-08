@@ -8,6 +8,11 @@ namespace BoulderDashApp.Model
 {
     public abstract class Fallable : Entity
     {
+        public Fallable()
+        {
+            this.MoveDirection = Direction.DOWN;
+        }
+
         public override bool Move()
         {
             MoveDirection = Direction.DOWN;
