@@ -40,7 +40,7 @@ namespace BoulderDashApp.Model
 
         private void Explode()
         {
-            if (this.IsDestroyed) { return; }
+            this.IsDestroyed = true;
             RedoReferences(this.Tile.Tilelink.Above.Tilelink.Left);
             RedoReferences(this.Tile.Tilelink.Above);
 
@@ -52,7 +52,7 @@ namespace BoulderDashApp.Model
 
             RedoReferences(this.Tile.Tilelink.Right.Tilelink.Above);
             RedoReferences(this.Tile.Tilelink.Right);
-            this.IsDestroyed = true;
+            
             this.Tile.Entity = null;
         }
 
@@ -66,6 +66,7 @@ namespace BoulderDashApp.Model
                     {
                         tile.Entity.Destroy();
                     }
+                    
                 }
                 EmptyTIle emptyTIle = new EmptyTIle();
                 emptyTIle.Tilelink.Left = tile.Tilelink.Left;
