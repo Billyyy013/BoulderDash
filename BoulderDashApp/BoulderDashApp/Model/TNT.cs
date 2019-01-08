@@ -8,6 +8,7 @@ namespace BoulderDashApp.Model
 {
     public class TNT : Fallable
     {
+        private int ticksPassed = 0;
         private bool hasFallen = false;
         public TNT()
         {
@@ -45,8 +46,14 @@ namespace BoulderDashApp.Model
 
         public override bool Move()
         {
+            
             if (this.IsDestroyed) { return false; }
-
+            ticksPassed++;
+            if (ticksPassed == 90)
+            {
+                Explode();
+                return false;
+            }
             MoveDirection = Direction.DOWN;
             if (!this.Tile.Tilelink.GetTile(MoveDirection).PlaceEntity(this))
             {

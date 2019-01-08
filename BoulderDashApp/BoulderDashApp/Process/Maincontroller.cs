@@ -31,49 +31,42 @@ namespace BoulderDashApp.Process
         public void Game()
         {
             bool gameFinished = false;
-            int seconds = 0;
             while (!gameFinished)
-                //3 stappen per "seconde"
-                //dit is een seconde
-                for (int i = 0; i < 3; i++)
-                {
-                    //eerst de Rockford 1 stap
-                    MoveRockford();
-                    if (Cave.Rockford.IsDestroyed)
-                    {
-                        outputView.RockfordIsKilledMessage();
-                        return;
-                    }
-                    //Check if all diamonds are collected
-                    if (Cave.Rockford.DiamondCounter == Cave.Diamonds.Count)
-                    {
-                        if (Cave.Exit != null)
-                        {
-                            Cave.Exit.Open();
-                        }
-                    }
-                    //daarna de movables 1 stap
-                    Cave.MoveMovables();
-                    if (Cave.Rockford.IsDestroyed)
-                    {
-                        outputView.RockfordIsKilledMessage();
-                        return;
-                    }
-                    //view stuff dat hier niet hoort
-                    Console.Clear();
-                    outputView.PrintMaze(Cave.First);
-                    outputView.PrintDiamondCounter(Cave.Rockford.DiamondCounter);
-                    Console.WriteLine(Cave.Diamonds.Count);
-                }
-            seconds++;
-            if (seconds == 30)
             {
-                //laat tnt exploderen of geef door en laat ergens anders gebeuren
-            }
 
+                //eerst de Rockford 1 stap
+                MoveRockford();
+                if (Cave.Rockford.IsDestroyed)
+                {
+                    outputView.RockfordIsKilledMessage();
+                    return;
+                }
+                //Check if all diamonds are collected
+                if (Cave.Rockford.DiamondCounter == Cave.AmountOfDiamonds)
+                {
+                    if (Cave.Exit != null)
+                    {
+                        Cave.Exit.Open();
+                    }
+                }
+                //daarna de movables 1 stap
+                Cave.MoveMovables();
+                if (Cave.Rockford.IsDestroyed)
+                {
+                    outputView.RockfordIsKilledMessage();
+                    return;
+                }
+                
+                //view stuff dat hier niet hoort
+                
+                outputView.PrintMaze(Cave.First);
+                outputView.PrintDiamondCounter(Cave.Rockford.DiamondCounter, Cave.AmountOfDiamonds);
+                
+
+            }
         }
 
-        
+
 
         public void MoveRockford()
         {

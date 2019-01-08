@@ -143,7 +143,7 @@ namespace BoulderDashApp.Process
                             Diamond diamond = new Diamond();
                             tiles[i, j].Entity = diamond;
                             Cave.Movables.Add(diamond);
-                            Cave.Diamonds.Add(diamond);
+                            Cave.AmountOfDiamonds++;
                             diamond.Tile = tiles[i, j];
                             break;
                         case 'F':

@@ -17,6 +17,7 @@ namespace BoulderDashApp.View
 
         public void PrintMaze(Tile first)
         {
+            Console.Clear();
             Console.WriteLine();
             Model.Tile horizontal = first;
             Model.Tile vertical = first;
@@ -61,9 +62,10 @@ namespace BoulderDashApp.View
             Console.WriteLine("Rockfort died. Game Over!");
         }
 
-        public void PrintDiamondCounter(int counter)
+        public void PrintDiamondCounter(int counter, int dias)
         {
-            Console.WriteLine("DiamondCounter = " + counter);
+            Console.WriteLine("DiamondCounter : " + counter);
+            Console.WriteLine("Diamonds To Collect: " + dias);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace BoulderDashApp.Model
 
         public Tile First { get; set; }
 
-        public List<Diamond> Diamonds { get; }
+        public int AmountOfDiamonds{get;set;}
 
         public List<Entity> Movables { get; set; }
 
@@ -21,7 +21,6 @@ namespace BoulderDashApp.Model
         public Cave()
         {
             Rockford = new Rockford();
-            Diamonds = new List<Diamond>();
             Movables = new List<Entity>();
         }
 

@@ -36,7 +36,7 @@ namespace BoulderDashApp.Model
         public override void Destroy()
         {
             this.IsDestroyed = true;
-
+            this.Tile.Entity = null;
             return;
         }
 
