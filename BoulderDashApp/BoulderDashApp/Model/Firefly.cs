@@ -10,10 +10,10 @@ namespace BoulderDashApp.Model
     {
         public Firefly()
         {
-            this.MoveDirection = Direction.LEFT;
+            this.MoveDirection = Direction.RIGHT;
             Symbol = 'F';
             CanDie = true;
-            CanDig = true;
+            CanDig = false;
             CanKill = true;
             IsCollectible = false;
         }
@@ -61,30 +61,81 @@ namespace BoulderDashApp.Model
 
         private void RedoReferences(Tile tile)
         {
-            if (tile.Entity != null)
+            if (tile.CanBeDestroyed)
             {
-                tile.Entity.Destroy();
-            }
-            EmptyTIle emptyTIle = new EmptyTIle();
-            emptyTIle.Tilelink.Left = tile.Tilelink.Left;
-            emptyTIle.Tilelink.Right = tile.Tilelink.Right;
-            emptyTIle.Tilelink.Above = tile.Tilelink.Above;
-            emptyTIle.Tilelink.Below = tile.Tilelink.Below;
-            emptyTIle.Entity = tile.Entity;
-            emptyTIle.Entity.Tile = emptyTIle;
+                if (tile.Entity != null)
+                {
+                    tile.Entity.Destroy();
+                }
+                EmptyTIle emptyTIle = new EmptyTIle();
+                emptyTIle.Tilelink.Left = tile.Tilelink.Left;
+                emptyTIle.Tilelink.Right = tile.Tilelink.Right;
+                emptyTIle.Tilelink.Above = tile.Tilelink.Above;
+                emptyTIle.Tilelink.Below = tile.Tilelink.Below;
+                emptyTIle.Entity = tile.Entity;
+                if (emptyTIle.Entity != null)
+                {
+                    emptyTIle.Entity.Tile = emptyTIle;
+                }
 
-            tile.Tilelink.Above.Tilelink.Below = emptyTIle;
-            tile.Tilelink.Below.Tilelink.Above = emptyTIle;
-            tile.Tilelink.Left.Tilelink.Right = emptyTIle;
-            tile.Tilelink.Right.Tilelink.Left = emptyTIle;
-            
+                tile.Tilelink.Above.Tilelink.Below = emptyTIle;
+                tile.Tilelink.Below.Tilelink.Above = emptyTIle;
+                tile.Tilelink.Left.Tilelink.Right = emptyTIle;
+                tile.Tilelink.Right.Tilelink.Left = emptyTIle;
+            }
         }
 
 
         public override bool Move()
         {
             if (this.IsDestroyed) { return false; }
-            return Tile.Tilelink.GetTile(MoveDirection).PlaceEntity(this);
+            Direction currentDirection = MoveDirection;
+            MoveDirection = GetLeft(currentDirection);
+            if (!Tile.Tilelink.GetTile(MoveDirection).PlaceEntity(this))
+            {
+                MoveDirection = currentDirection;
+                if (!Tile.Tilelink.GetTile(MoveDirection).PlaceEntity(this))
+                {
+                    MoveDirection = GetRight(currentDirection);
+                    return Tile.Tilelink.GetTile(MoveDirection).PlaceEntity(this);
+                }
+                return true;
+            }
+            return true;
+        }
+
+        private Direction GetLeft(Direction d)
+        {
+            switch (d)
+            {
+                case Direction.UP:
+                    return Direction.LEFT;
+
+                case Direction.LEFT:
+                    return Direction.DOWN;
+
+                case Direction.RIGHT:
+                    return Direction.UP;
+                default:
+                    return Direction.RIGHT;
+            }
+        }
+
+        private Direction GetRight(Direction d)
+        {
+            switch (d)
+            {
+                case Direction.UP:
+                    return Direction.RIGHT;
+
+                case Direction.LEFT:
+                    return Direction.UP;
+
+                case Direction.RIGHT:
+                    return Direction.DOWN;
+                default:
+                    return Direction.LEFT;
+            }
         }
     }
 }

@@ -81,25 +81,28 @@ namespace BoulderDashApp.Model
 
         private void RedoReferences(Tile tile)
         {
-            if (tile.Entity != null)
+            if (tile.CanBeDestroyed)
             {
-                tile.Entity.Destroy();
-            }
-            EmptyTIle emptyTIle = new EmptyTIle();
-            emptyTIle.Tilelink.Left = tile.Tilelink.Left;
-            emptyTIle.Tilelink.Right = tile.Tilelink.Right;
-            emptyTIle.Tilelink.Above = tile.Tilelink.Above;
-            emptyTIle.Tilelink.Below = tile.Tilelink.Below;
-            emptyTIle.Entity = tile.Entity;
-            if (emptyTIle.Entity != null)
-            {
-                emptyTIle.Entity.Tile = emptyTIle;
-            }
+                if (tile.Entity != null)
+                {
+                    tile.Entity.Destroy();
+                }
+                EmptyTIle emptyTIle = new EmptyTIle();
+                emptyTIle.Tilelink.Left = tile.Tilelink.Left;
+                emptyTIle.Tilelink.Right = tile.Tilelink.Right;
+                emptyTIle.Tilelink.Above = tile.Tilelink.Above;
+                emptyTIle.Tilelink.Below = tile.Tilelink.Below;
+                emptyTIle.Entity = tile.Entity;
+                if (emptyTIle.Entity != null)
+                {
+                    emptyTIle.Entity.Tile = emptyTIle;
+                }
 
-            tile.Tilelink.Above.Tilelink.Below = emptyTIle;
-            tile.Tilelink.Below.Tilelink.Above = emptyTIle;
-            tile.Tilelink.Left.Tilelink.Right = emptyTIle;
-            tile.Tilelink.Right.Tilelink.Left = emptyTIle;
+                tile.Tilelink.Above.Tilelink.Below = emptyTIle;
+                tile.Tilelink.Below.Tilelink.Above = emptyTIle;
+                tile.Tilelink.Left.Tilelink.Right = emptyTIle;
+                tile.Tilelink.Right.Tilelink.Left = emptyTIle;
+            }
         }
     }
 }
