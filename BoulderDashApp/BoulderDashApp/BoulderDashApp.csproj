@@ -55,6 +55,7 @@
     <Compile Include="Model\HardenedMud.cs" />
     <Compile Include="Model\Mud.cs" />
     <Compile Include="Model\Rockford.cs" />
+    <Compile Include="Model\Rubble.cs" />
     <Compile Include="Model\Steelwall.cs" />
     <Compile Include="Model\Tile.cs" />
     <Compile Include="Model\TNT.cs" />
