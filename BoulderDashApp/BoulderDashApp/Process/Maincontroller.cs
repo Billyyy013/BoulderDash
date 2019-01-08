@@ -24,7 +24,7 @@ namespace BoulderDashApp.Process
             _levelData.BuildMaze(inputView.AskForLevelNumber());
             Cave = _levelData.Cave;
             outputView.PrintMaze(Cave.First);
-            MoveRockford();
+            Game();
             Console.ReadLine();
         }
 
@@ -39,6 +39,14 @@ namespace BoulderDashApp.Process
                 {
                     //eerst de Rockford 1 stap
                     MoveRockford();
+                    //Check if all diamonds are collected
+                    if (Cave.Rockford.DiamondCounter == Cave.Diamonds.Count)
+                    {
+                        if (Cave.Exit != null)
+                        {
+                            Cave.Exit.Open();
+                        }
+                    }
                     //daarna de movables 1 stap
                     Cave.MoveMovables();
                     //view stuff dat hier niet hoort
@@ -55,10 +63,7 @@ namespace BoulderDashApp.Process
 
         }
 
-        //if(Cave.Rockford.DiamondCounter == Cave.Diamonds.Count)
-        //{
-        //    _levelData.ExitOpen = true;
-        //}
+        
 
         public void MoveRockford()
         {

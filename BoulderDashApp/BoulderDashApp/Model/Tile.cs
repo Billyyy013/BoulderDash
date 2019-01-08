@@ -29,11 +29,14 @@ namespace BoulderDashApp.Model
 
         public abstract bool PlaceEntity(Entity entity);
 
+        public bool CanBeDestroyed { get; set; }
+
         public TileLink Tilelink { get; set; }
 
         public Tile()
         {
             Tilelink = new TileLink();
+            CanBeDestroyed = true;
         }
         
         public class TileLink

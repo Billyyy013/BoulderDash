@@ -11,8 +11,7 @@ namespace BoulderDashApp.Process
     {
         public static int Level_width = 40;
         public static int Level_height = 22;
-
-        public bool ExitOpen { get; set; }
+        
 
         public static char[,] Level1 = new char[22, 40]
         {
@@ -173,7 +172,7 @@ namespace BoulderDashApp.Process
                         case 'E':
                             Exit exit = new Exit();
                             tiles[i, j] = exit;
-                            this.ExitOpen = exit.IsOpen;
+                            Cave.Exit = exit;
                             break;
                     }
                     if (Cave.First == null)

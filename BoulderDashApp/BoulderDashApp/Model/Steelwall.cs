@@ -11,6 +11,7 @@ namespace BoulderDashApp.Model
         public Steelwall()
         {
             OwnSymbol = '■';
+            CanBeDestroyed = false;
         }
 
         public override bool PlaceEntity(Entity entity)

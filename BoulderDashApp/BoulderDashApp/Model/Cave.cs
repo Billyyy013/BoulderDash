@@ -16,6 +16,8 @@ namespace BoulderDashApp.Model
 
         public List<Entity> Movables { get; set; }
 
+        public Exit Exit { get; set; }
+
         public Cave()
         {
             Rockford = new Rockford();
