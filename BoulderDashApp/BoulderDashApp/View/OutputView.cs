@@ -33,6 +33,7 @@ namespace BoulderDashApp.View
                 horizontal = vertical;
             }
             PrintDiamondCounter(counter, dias);
+            Score(counter);
         }
 
         public void PrintWelcomeMessage()
@@ -66,6 +67,12 @@ namespace BoulderDashApp.View
         {
             Console.WriteLine("DiamondCounter : " + counter);
             Console.WriteLine("Diamonds To Collect: " + dias);
+        }
+
+        public void Score(int score)
+        {
+            score = score * 10;
+            Console.WriteLine("Score = " + score);
         }
     }
 }
