@@ -13,7 +13,7 @@ namespace BoulderDashApp.Model
 
         public Rubble()
         {
-            CanDie = false;
+            CanDie = true;
             CanDig = false;
             CanKill = true;
             IsCollectible = false;
