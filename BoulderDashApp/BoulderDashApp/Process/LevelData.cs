@@ -94,24 +94,25 @@ namespace BoulderDashApp.Process
 
         public void BuildMaze(int levelnr)
         {
+            Cave = new Cave();
             char[,] level;
             switch (levelnr)
             {
-                case 1:
-                    level = Level1;
-                    break;
                 case 2:
                     level = Level2;
+                    Cave.LevelTime = 150;       
                     break;
                 case 3:
                     level = Level3;
+                    Cave.LevelTime = 1000;
                     break;
                 default:
                     level = Level1;
+                    Cave.LevelTime = 150;
                     break;
             }
 
-            Cave = new Cave();
+            
             Model.Tile[,] tiles = new Model.Tile[level.GetLength(0), level.GetLength(1)];
 
             for (int i = 0; i < level.GetLength(0); i++)

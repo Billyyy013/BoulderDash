@@ -31,10 +31,9 @@ namespace BoulderDashApp.Process
 
         public void Game()
         {
-            bool gameFinished = false;
-            while (!gameFinished)
+            
+            while (Cave.LevelTime > Cave.PlayTime)
             {
-                int seconds = 0;
                 for (int i = 0; i < 3; i++)
                 {
                     //eerst de Rockford 1 stap
@@ -42,8 +41,13 @@ namespace BoulderDashApp.Process
                     if (Cave.Rockford.IsDestroyed)
                     {
                         outputView.PrintMaze(Cave.First, Cave.Rockford.DiamondCounter, Cave.AmountOfDiamonds);
-                        outputView.Score(Cave.GetScore() + seconds*10);
+                        outputView.Score(Cave.GetScore());
                         outputView.RockfordIsKilledMessage();
+                        return;
+                    }
+                    if (Cave.Exit.Entity != null)
+                    {
+                        outputView.GameWon(Cave.GetScore + ((Cave.LevelTime - Cave.PlayTime) * 10));
                         return;
                     }
                     //Check if all diamonds are collected
@@ -59,7 +63,7 @@ namespace BoulderDashApp.Process
                     if (Cave.Rockford.IsDestroyed)
                     {
                         outputView.PrintMaze(Cave.First, Cave.Rockford.DiamondCounter, Cave.AmountOfDiamonds);
-                        outputView.Score(Cave.GetScore() + seconds * 10);
+                        outputView.Score(Cave.GetScore());
                         outputView.RockfordIsKilledMessage();
                         return;
                     }
@@ -69,9 +73,10 @@ namespace BoulderDashApp.Process
                     outputView.PrintMaze(Cave.First, Cave.Rockford.DiamondCounter, Cave.AmountOfDiamonds);
                     outputView.Score(Cave.GetScore());
                 }
-                seconds++;
+                Cave.PlayTime++;
 
             }
+            outputView.TimesUp();
         }
 
 

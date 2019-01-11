@@ -10,6 +10,10 @@ namespace BoulderDashApp.Model
     {
         public Rockford Rockford { get; set; }
 
+        public int LevelTime { get; set; }
+
+        public int PlayTime { get; set; }
+
         public Tile First { get; set; }
 
         public int AmountOfDiamonds{get;set;}
