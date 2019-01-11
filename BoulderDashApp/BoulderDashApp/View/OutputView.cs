@@ -101,6 +101,11 @@ namespace BoulderDashApp.View
 
         public override void Visit(Exit exit)
         {
+            if (exit.IsOpen)
+            {
+                _drawString = 'E';
+                return;
+            }
             _drawString = '0';
         }
 

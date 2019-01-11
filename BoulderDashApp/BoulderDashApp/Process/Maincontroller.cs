@@ -75,7 +75,7 @@ namespace BoulderDashApp.Process
                     outputView.Score(Cave.GetScore());
                 }
                 Cave.PlayTime++;
-
+                Console.WriteLine(Cave.PlayTime);
             }
             outputView.TimesUp();
         }
