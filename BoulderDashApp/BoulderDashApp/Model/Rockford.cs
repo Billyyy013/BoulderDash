@@ -9,7 +9,6 @@ namespace BoulderDashApp.Model
 {
     public class Rockford : Entity
     {
-        public int Score { get { return DiamondCounter * 10; } }
         public Rockford()
         {
             CanDie = true;

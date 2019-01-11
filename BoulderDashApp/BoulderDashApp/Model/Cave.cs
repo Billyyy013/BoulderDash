@@ -31,5 +31,15 @@ namespace BoulderDashApp.Model
                 e.Move();
             }
         }
+
+        public int GetScore()
+        {
+            int score = 0;
+            foreach (Entity e in Movables)
+            {
+                score += e.WorthPoints;
+            }
+            return score;
+        }
     }
 }

@@ -31,6 +31,7 @@ namespace BoulderDashApp.Model
                 this.Tile.Entity = null;
                 this.Tile.PlaceEntity(entity);
                 this.IsDestroyed = true;
+                WorthPoints = 10;
             }
         }
 
