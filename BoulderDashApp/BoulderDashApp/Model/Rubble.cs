@@ -33,7 +33,7 @@ namespace BoulderDashApp.Model
 
         public override void Collision(Entity entity)
         {
-            this.Tile.Entity = null;
+            return;
         }
 
         public override void Destroy()
