@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace BoulderDashApp.Model
 {
-    public abstract class Entity
+    public abstract class Entity : OriginClass
     {
         public Tile Tile { get; set; }
         public int DiamondCounter { get; set; }
-
-        public abstract void Accept(View.Visitor visitor);
 
         public Entity()
         {

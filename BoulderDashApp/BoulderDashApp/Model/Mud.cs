@@ -13,6 +13,7 @@ namespace BoulderDashApp.Model
         public Mud()
         {
             HP = 1;
+            CanSupport = true;
         }
 
         public override bool PlaceEntity(Entity entity)

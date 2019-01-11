@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace BoulderDashApp.Model
 {
-    public abstract class Tile
+    public abstract class Tile : OriginClass
     {
         public Entity Entity { get; set; }
 
         public abstract bool PlaceEntity(Entity entity);
 
-        public abstract void Accept(View.Visitor visitor);
+        
 
         public bool CanBeDestroyed { get; set; }
 

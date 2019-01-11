@@ -27,7 +27,41 @@ namespace BoulderDashApp.Model
 
         public override bool Move()
         {
-            return base.Move();
+            if (CountConnectedSides())
+            {
+                return false;
+            }
+            //Hier moven
+            return this.Tile.Tilelink.GetTile(MoveDirection).PlaceEntity(this);
         }
+
+        private bool CountConnectedSides()
+        {
+            if (this.Tile.Tilelink.Below.CanSupport || this.Tile.Tilelink.Below.Entity.CanSupport)
+            {
+                return true;
+            }
+            int counter = 0;
+            if (this.Tile.Tilelink.Above.CanSupport || this.Tile.Tilelink.Above.Entity.CanSupport)
+            {
+                counter++;
+            }
+            if (this.Tile.Tilelink.Right.CanSupport || this.Tile.Tilelink.Right.Entity.CanSupport)
+            {
+                counter++;
+            }
+            if (this.Tile.Tilelink.Left.CanSupport || this.Tile.Tilelink.Left.Entity.CanSupport)
+            {
+                counter++;
+            }
+            if (counter >= 2)
+            {
+                return true;
+            }
+            return false;
+        }
+
+
     }
+}
 }

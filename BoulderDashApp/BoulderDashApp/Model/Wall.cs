@@ -21,6 +21,11 @@ namespace BoulderDashApp.Model
             }
         }
 
+        public Wall()
+        {
+            CanSupport = true;
+        }
+
         public override bool PlaceEntity(Entity entity)
         {
             return false;

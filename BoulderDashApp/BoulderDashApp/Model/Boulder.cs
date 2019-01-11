@@ -15,6 +15,7 @@ namespace BoulderDashApp.Model
             CanDig = false;
             CanKill = true;
             IsCollectible = false;
+            CanSupport = true;
         }
 
         public override void Accept(Visitor visitor)
