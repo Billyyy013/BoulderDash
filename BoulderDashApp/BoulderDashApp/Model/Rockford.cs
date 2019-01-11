@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BoulderDashApp.View;
 
 namespace BoulderDashApp.Model
 {
@@ -11,7 +12,6 @@ namespace BoulderDashApp.Model
         public int Score { get { return DiamondCounter * 10; } }
         public Rockford()
         {
-            Symbol = '@';
             CanDie = true;
             CanDig = true;
             CanKill = false;
@@ -35,6 +35,11 @@ namespace BoulderDashApp.Model
         public override bool Move()
         {
             return Tile.Tilelink.GetTile(MoveDirection).PlaceEntity(this);
+        }
+
+        public override void Accept(Visitor visitor)
+        {
+            visitor.Visit(this);
         }
     }
 }

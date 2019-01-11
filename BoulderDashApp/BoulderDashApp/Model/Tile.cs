@@ -8,26 +8,11 @@ namespace BoulderDashApp.Model
 {
     public abstract class Tile
     {
-        public char Symbol
-        {
-            get
-            {
-                if (Entity != null)
-                {
-                    return Entity.Symbol;
-                }
-                else
-                {
-                    return OwnSymbol;
-                }
-            }
-        }
-        
-        public char OwnSymbol { get; set; }
-
         public Entity Entity { get; set; }
 
         public abstract bool PlaceEntity(Entity entity);
+
+        public abstract void Accept(View.Visitor visitor);
 
         public bool CanBeDestroyed { get; set; }
 

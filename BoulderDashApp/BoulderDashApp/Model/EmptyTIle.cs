@@ -3,15 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BoulderDashApp.View;
 
 namespace BoulderDashApp.Model
 {
     public class EmptyTIle : Tile
     {
 
-        public EmptyTIle()
+        public override void Accept(Visitor visitor)
         {
-            OwnSymbol = '.';
+            if(Entity != null)
+            {
+                Entity.Accept(visitor);
+            } else
+            {
+                visitor.Visit(this);
+            }
         }
 
         public override bool PlaceEntity(Entity entity)
@@ -29,5 +36,7 @@ namespace BoulderDashApp.Model
                 return false;
             }
         }
+
+
     }
 }

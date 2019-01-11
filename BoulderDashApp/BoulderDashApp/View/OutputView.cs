@@ -7,8 +7,9 @@ using BoulderDashApp.Model;
 
 namespace BoulderDashApp.View
 {
-    class OutputView
+    class OutputView : Visitor
     {
+        private char _drawString;
         public OutputView()
         {
             PrintWelcomeMessage();
@@ -25,7 +26,8 @@ namespace BoulderDashApp.View
             {
                 while(horizontal != null)
                 {
-                    Console.Write(horizontal.Symbol);
+                    horizontal.Accept(this);
+                    Console.Write(_drawString);
                     horizontal = horizontal.Tilelink.Right;
                 }
                 Console.WriteLine();
@@ -33,7 +35,6 @@ namespace BoulderDashApp.View
                 horizontal = vertical;
             }
             PrintDiamondCounter(counter, dias);
-            //Score(counter);
         }
 
         public void PrintWelcomeMessage()
@@ -72,6 +73,66 @@ namespace BoulderDashApp.View
         public void Score(int score)
         {
             Console.WriteLine("Score = " + score);
+        }
+
+        public override void Visit(EmptyTIle tile)
+        {
+            _drawString = ' ';
+        }
+
+        public override void Visit(Boulder boulder)
+        {
+            _drawString = 'o';
+        }
+
+        public override void Visit(Diamond diamond)
+        {
+            _drawString = 'D';
+        }
+
+        public override void Visit(Exit exit)
+        {
+            _drawString = '0';
+        }
+
+        public override void Visit(Firefly firefly)
+        {
+            _drawString = 'F';
+        }
+
+        public override void Visit(HardenedMud hardenedMud)
+        {
+            _drawString = 'H';
+        }
+
+        public override void Visit(Mud mud)
+        {
+            _drawString = '▒';
+        }
+
+        public override void Visit(Rockford rockford)
+        {
+            _drawString = '@';
+        }
+
+        public override void Visit(Rubble rubble)
+        {
+            _drawString = 'R';
+        }
+
+        public override void Visit(Steelwall steelwall)
+        {
+            _drawString = '■';
+        }
+
+        public override void Visit(TNT tnt)
+        {
+            _drawString = 'T'; 
+        }
+
+        public override void Visit(Wall wall)
+        {
+            _drawString = '=';
         }
     }
 }

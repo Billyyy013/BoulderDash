@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BoulderDashApp.View;
 
 namespace BoulderDashApp.Model
 {
@@ -11,7 +12,6 @@ namespace BoulderDashApp.Model
         public bool IsOpen { get; set; }
         public Exit()
         {
-            OwnSymbol = '0';
             IsOpen = false;
             CanBeDestroyed = false;
         }
@@ -39,7 +39,18 @@ namespace BoulderDashApp.Model
         internal void Open()
         {
             IsOpen = true;
-            OwnSymbol = 'E';
+        }
+
+        public override void Accept(Visitor visitor)
+        {
+            if (Entity != null)
+            {
+                Entity.Accept(visitor);
+            }
+            else
+            {
+                visitor.Visit(this);
+            }
         }
     }
 }

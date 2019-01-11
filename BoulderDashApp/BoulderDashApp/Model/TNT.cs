@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BoulderDashApp.View;
 
 namespace BoulderDashApp.Model
 {
@@ -12,11 +13,15 @@ namespace BoulderDashApp.Model
         private bool hasFallen = false;
         public TNT()
         {
-            Symbol = 'T';
             CanDie = false;
             CanDig = false;
             CanKill = false;
             IsCollectible = true;
+        }
+
+        public override void Accept(Visitor visitor)
+        {
+            visitor.Visit(this);
         }
 
         public override void Collision(Entity entity)

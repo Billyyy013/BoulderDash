@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BoulderDashApp.View;
 
 namespace BoulderDashApp.Model
 {
@@ -11,7 +12,6 @@ namespace BoulderDashApp.Model
         public Firefly()
         {
             this.MoveDirection = Direction.RIGHT;
-            Symbol = 'F';
             CanDie = true;
             CanDig = false;
             CanKill = true;
@@ -173,6 +173,11 @@ namespace BoulderDashApp.Model
                 default:
                     return Direction.LEFT;
             }
+        }
+
+        public override void Accept(Visitor visitor)
+        {
+            visitor.Visit(this);
         }
     }
 }

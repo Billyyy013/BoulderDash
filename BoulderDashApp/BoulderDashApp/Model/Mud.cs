@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BoulderDashApp.View;
 
 namespace BoulderDashApp.Model
 {
@@ -11,7 +12,6 @@ namespace BoulderDashApp.Model
         public int HP { get; set; }
         public Mud()
         {
-            OwnSymbol = '▒';
             HP = 1;
         }
 
@@ -39,6 +39,18 @@ namespace BoulderDashApp.Model
             }
 
             return false;
+        }
+
+        public override void Accept(Visitor visitor)
+        {
+            if (Entity != null)
+            {
+                Entity.Accept(visitor);
+            }
+            else
+            {
+                visitor.Visit(this);
+            }
         }
     }
 }

@@ -8,9 +8,10 @@ namespace BoulderDashApp.Model
 {
     public abstract class Entity
     {
-        public virtual char Symbol { get; set; }
         public Tile Tile { get; set; }
         public int DiamondCounter { get; set; }
+
+        public abstract void Accept(View.Visitor visitor);
 
         public Entity()
         {
