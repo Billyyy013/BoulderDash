@@ -67,7 +67,6 @@ namespace BoulderDashApp.View
         public void PrintDiamondCounter(int counter, int dias)
         {
             Console.WriteLine("DiamondCounter : " + counter);
-            Console.WriteLine("Diamonds To Collect: " + dias);
         }
 
         public void Score(int score)
