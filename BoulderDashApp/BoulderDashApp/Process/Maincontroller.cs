@@ -47,7 +47,8 @@ namespace BoulderDashApp.Process
                     }
                     if (Cave.Exit.Entity != null)
                     {
-                        outputView.GameWon(Cave.GetScore + ((Cave.LevelTime - Cave.PlayTime) * 10));
+                        int finalScore = Cave.GetScore() + ((Cave.LevelTime - Cave.PlayTime) * 10);
+                        outputView.GameWon(finalScore);
                         return;
                     }
                     //Check if all diamonds are collected
