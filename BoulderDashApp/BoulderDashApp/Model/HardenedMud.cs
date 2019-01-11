@@ -16,7 +16,14 @@ namespace BoulderDashApp.Model
         }
         public override void Accept(Visitor visitor)
         {
-            visitor.Visit(this);
+            if (Entity != null)
+            {
+                Entity.Accept(visitor);
+            }
+            else
+            {
+                visitor.Visit(this);
+            }
         }
     }
 }

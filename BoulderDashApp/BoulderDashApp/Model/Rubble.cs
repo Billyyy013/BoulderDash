@@ -9,10 +9,26 @@ namespace BoulderDashApp.Model
 {
     public class Rubble : Fallable
     {
+        public bool falling = false;
+
+        public Rubble()
+        {
+            CanDie = false;
+            CanDig = false;
+            CanKill = true;
+            IsCollectible = false;
+        }
 
         public override void Accept(Visitor visitor)
         {
-            visitor.Visit(this);
+            if (falling)
+            {
+                visitor.Visit(this);
+                return;
+            }
+            this.Tile.Entity = null;
+            this.Tile.Accept(visitor);
+            this.Tile.Entity = this;
         }
 
         public override void Collision(Entity entity)
@@ -22,38 +38,42 @@ namespace BoulderDashApp.Model
 
         public override void Destroy()
         {
-            throw new NotImplementedException();
+            this.Tile.Entity = null;
         }
 
         public override bool Move()
         {
             if (CountConnectedSides())
             {
+                falling = false;
                 return false;
             }
-            //Hier moven
-            return this.Tile.Tilelink.GetTile(MoveDirection).PlaceEntity(this);
+            Tile t = this.Tile;
+            this.RedoReferences(this.Tile, new EmptyTIle());
+            bool b = this.Tile.Tilelink.GetTile(MoveDirection).PlaceEntity(this);
+            this.RedoReferences(this.Tile, t);
+            if (b)
+            {
+                falling = true;
+            }
+            return b;
         }
 
+        
         private bool CountConnectedSides()
         {
-            if (this.Tile.Tilelink.Below.CanSupport || this.Tile.Tilelink.Below.Entity.CanSupport)
+            Tile tile = this.Tile.Tilelink.Below;
+            if (tile.CanSupport || (tile.Entity != null && tile.Entity.CanSupport))
             {
                 return true;
             }
             int counter = 0;
-            if (this.Tile.Tilelink.Above.CanSupport || this.Tile.Tilelink.Above.Entity.CanSupport)
+            foreach (Tile t in this.Tile.Tilelink.GetSurrounding())
             {
-                counter++;
+                if (t.CanSupport || (t.Entity != null && t.Entity.CanSupport))
+                    counter++;
             }
-            if (this.Tile.Tilelink.Right.CanSupport || this.Tile.Tilelink.Right.Entity.CanSupport)
-            {
-                counter++;
-            }
-            if (this.Tile.Tilelink.Left.CanSupport || this.Tile.Tilelink.Left.Entity.CanSupport)
-            {
-                counter++;
-            }
+                   
             if (counter >= 2)
             {
                 return true;
@@ -61,7 +81,24 @@ namespace BoulderDashApp.Model
             return false;
         }
 
+        private void RedoReferences(Tile tile, Tile newTile)
+        {
+            newTile.Tilelink.Left = tile.Tilelink.Left;
+            newTile.Tilelink.Right = tile.Tilelink.Right;
+            newTile.Tilelink.Above = tile.Tilelink.Above;
+            newTile.Tilelink.Below = tile.Tilelink.Below;
+            newTile.Entity = tile.Entity;
+            if (newTile.Entity != null)
+            {
+                newTile.Entity.Tile = newTile;
+            }
 
+            tile.Tilelink.Above.Tilelink.Below = newTile;
+            tile.Tilelink.Below.Tilelink.Above = newTile;
+            tile.Tilelink.Left.Tilelink.Right = newTile;
+            tile.Tilelink.Right.Tilelink.Left = newTile;
+        }
     }
 }
-}
+
+

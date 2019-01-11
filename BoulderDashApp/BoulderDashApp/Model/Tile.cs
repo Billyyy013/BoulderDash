@@ -41,6 +41,15 @@ namespace BoulderDashApp.Model
                     default: return Right;
                 }
             }
+
+            public List<Tile> GetSurrounding()
+            {
+                List<Tile> ret = new List<Tile>()
+                {
+                    Above, Below, Left, Right
+                };
+                return ret;
+            }
         }
     }
 }
