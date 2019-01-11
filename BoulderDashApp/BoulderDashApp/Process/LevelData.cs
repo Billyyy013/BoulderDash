@@ -161,7 +161,10 @@ namespace BoulderDashApp.Process
                             break;
                         case 'H':
                             HardenedMud hardenedMud = new HardenedMud();
+                            Rubble rubble = new Rubble();
                             tiles[i, j] = hardenedMud;
+                            tiles[i, j].Entity = rubble;
+                            Cave.Movables.Add(rubble);
                             break;
                         case 'T':
                             tiles[i, j] = new EmptyTIle();

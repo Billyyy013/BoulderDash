@@ -33,7 +33,7 @@ namespace BoulderDashApp.View
                 horizontal = vertical;
             }
             PrintDiamondCounter(counter, dias);
-            Score(counter);
+            //Score(counter);
         }
 
         public void PrintWelcomeMessage()
@@ -71,7 +71,6 @@ namespace BoulderDashApp.View
 
         public void Score(int score)
         {
-            score = score * 10;
             Console.WriteLine("Score = " + score);
         }
     }

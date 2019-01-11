@@ -22,5 +22,10 @@ namespace BoulderDashApp.Model
         {
             throw new NotImplementedException();
         }
+
+        public override bool Move()
+        {
+            return base.Move();
+        }
     }
 }

@@ -8,7 +8,7 @@ namespace BoulderDashApp.Model
 {
     public class Rockford : Entity
     {
-
+        public int Score { get { return DiamondCounter * 10; } }
         public Rockford()
         {
             Symbol = '@';
@@ -34,7 +34,7 @@ namespace BoulderDashApp.Model
 
         public override bool Move()
         {
-            return Tile.Tilelink.GetTile(MoveDirection).PlaceEntity(this);           
+            return Tile.Tilelink.GetTile(MoveDirection).PlaceEntity(this);
         }
     }
 }

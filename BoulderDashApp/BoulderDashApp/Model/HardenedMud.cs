@@ -39,7 +39,7 @@ namespace BoulderDashApp.Model
 
         public bool MakeHardenedMudRubble()
         {
-            if(FallCounter < 2)
+            if(CanFall() < 2)
             {
                 Rubble rubble = new Rubble();
                 this.Entity = rubble;
