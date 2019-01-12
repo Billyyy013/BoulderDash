@@ -24,49 +24,60 @@ namespace BoulderDashApp.Process
             _levelData.BuildMaze(inputView.AskForLevelNumber());
             Cave = _levelData.Cave;
             outputView.PrintMaze(Cave.First, Cave.Rockford.DiamondCounter, Cave.AmountOfDiamonds);
-            outputView.Score(Cave.Rockford.Score);
+            outputView.Score(Cave.GetScore());
             Game();
             Console.ReadLine();
         }
 
         public void Game()
         {
-            bool gameFinished = false;
-            while (!gameFinished)
+            
+            while (Cave.LevelTime > Cave.PlayTime)
             {
-
-                //eerst de Rockford 1 stap
-                MoveRockford();
-                if (Cave.Rockford.IsDestroyed)
+                for (int i = 0; i < 3; i++)
                 {
-                    outputView.PrintMaze(Cave.First, Cave.Rockford.DiamondCounter, Cave.AmountOfDiamonds);
-                    outputView.RockfordIsKilledMessage();
-                    return;
-                }
-                //Check if all diamonds are collected
-                if (Cave.Rockford.DiamondCounter == Cave.AmountOfDiamonds)
-                {
-                    if (Cave.Exit != null)
+                    //eerst de Rockford 1 stap
+                    MoveRockford();
+                    if (Cave.Rockford.IsDestroyed)
                     {
-                        Cave.Exit.Open();
+                        outputView.PrintMaze(Cave.First, Cave.Rockford.DiamondCounter, Cave.AmountOfDiamonds);
+                        outputView.Score(Cave.GetScore());
+                        outputView.RockfordIsKilledMessage();
+                        return;
                     }
-                }
-                //daarna de movables 1 stap
-                Cave.MoveMovables();
-                if (Cave.Rockford.IsDestroyed)
-                {
+                    if (Cave.Exit != null && Cave.Exit.Entity != null)
+                    {
+                        int finalScore = Cave.GetScore() + ((Cave.LevelTime - Cave.PlayTime) * 10);
+                        outputView.GameWon(finalScore);
+                        return;
+                    }
+                    //Check if all diamonds are collected
+                    if (Cave.Rockford.DiamondCounter == Cave.AmountOfDiamonds)
+                    {
+                        if (Cave.Exit != null)
+                        {
+                            Cave.Exit.Open();
+                        }
+                    }
+                    //daarna de movables 1 stap
+                    Cave.MoveMovables();
+                    if (Cave.Rockford.IsDestroyed)
+                    {
+                        outputView.PrintMaze(Cave.First, Cave.Rockford.DiamondCounter, Cave.AmountOfDiamonds);
+                        outputView.Score(Cave.GetScore());
+                        outputView.RockfordIsKilledMessage();
+                        return;
+                    }
+
+
+
                     outputView.PrintMaze(Cave.First, Cave.Rockford.DiamondCounter, Cave.AmountOfDiamonds);
-                    outputView.RockfordIsKilledMessage();
-                    return;
+                    outputView.Score(Cave.GetScore());
                 }
-                
-                //view stuff dat hier niet hoort
-                
-                outputView.PrintMaze(Cave.First, Cave.Rockford.DiamondCounter, Cave.AmountOfDiamonds);
-                outputView.Score(Cave.Rockford.Score);
-
-
+                Cave.PlayTime++;
+                Console.WriteLine(Cave.PlayTime);
             }
+            outputView.TimesUp();
         }
 
 

@@ -58,10 +58,20 @@ namespace BoulderDashApp.View
 
         }
 
+        public void GameWon(int endScore)
+        {
+            Console.WriteLine("Congatulations You have completed this level! Your end score is: " + endScore);
+        }
+
         internal void RockfordIsKilledMessage()
         {
             
             Console.WriteLine("Rockfort died. Game Over!");
+        }
+
+        public void TimesUp()
+        {
+            Console.WriteLine("Times up! Game Over! ");
         }
 
         public void PrintDiamondCounter(int counter, int dias)
@@ -91,6 +101,11 @@ namespace BoulderDashApp.View
 
         public override void Visit(Exit exit)
         {
+            if (exit.IsOpen)
+            {
+                _drawString = 'E';
+                return;
+            }
             _drawString = '0';
         }
 

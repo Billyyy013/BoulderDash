@@ -10,6 +10,10 @@ namespace BoulderDashApp.Model
     {
         public Rockford Rockford { get; set; }
 
+        public int LevelTime { get; set; }
+
+        public int PlayTime { get; set; }
+
         public Tile First { get; set; }
 
         public int AmountOfDiamonds{get;set;}
@@ -30,6 +34,16 @@ namespace BoulderDashApp.Model
             {
                 e.Move();
             }
+        }
+
+        public int GetScore()
+        {
+            int score = 0;
+            foreach (Entity e in Movables)
+            {
+                score += e.WorthPoints;
+            }
+            return score;
         }
     }
 }

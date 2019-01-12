@@ -25,11 +25,6 @@ namespace BoulderDashApp.Model
                     entity.Tile.Entity = null;
                     entity.Tile = this;
                     this.Entity = entity;
-                    //Spel is afgelopen VERPLAATSEN TODO
-                    Console.Clear();
-                    Console.WriteLine("Gefeliciflapstaart je hebt gewonnen");
-                    Console.ReadLine();
-                    
                     return true;
                 }
             }

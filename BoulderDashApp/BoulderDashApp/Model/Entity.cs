@@ -16,6 +16,8 @@ namespace BoulderDashApp.Model
             IsDestroyed = false;
         }
 
+        public int WorthPoints = 0;
+
         public abstract void Collision(Entity entity);
 
         public abstract void Destroy();

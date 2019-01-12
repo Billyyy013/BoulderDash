@@ -31,7 +31,7 @@ namespace BoulderDashApp.Model
                 emptyTIle.Tilelink.Right = this.Tilelink.Right;
                 emptyTIle.Tilelink.Above = this.Tilelink.Above;
                 emptyTIle.Tilelink.Below = this.Tilelink.Below;
-                emptyTIle.Entity = this.Entity;
+                emptyTIle.Entity = null;
 
                 this.Tilelink.Above.Tilelink.Below = emptyTIle;
                 this.Tilelink.Below.Tilelink.Above = emptyTIle;

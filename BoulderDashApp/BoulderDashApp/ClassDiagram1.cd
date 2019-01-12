@@ -3,7 +3,7 @@
   <Class Name="BoulderDashApp.Model.Boulder" Collapsed="true">
     <Position X="17.5" Y="8" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AIAAAAAAAIAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Boulder.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -23,21 +23,21 @@
   <Class Name="BoulderDashApp.Model.Diamond" Collapsed="true">
     <Position X="19.75" Y="8" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AIAAAAAAAIAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Diamond.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BoulderDashApp.Model.EmptyTIle" Collapsed="true">
     <Position X="13" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
       <FileName>Model\EmptyTIle.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BoulderDashApp.Model.Entity" Collapsed="true">
     <Position X="17.5" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAIAAAABwAAAAAAAAAgBAgAAAAAAAAAAACRA=</HashCode>
+      <HashCode>AAAAAAAAAIAAAABwAAAAAAAAAgBAgAAAAAAAAAAAARA=</HashCode>
       <FileName>Model\Entity.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -47,7 +47,7 @@
   <Class Name="BoulderDashApp.Model.Exit" Collapsed="true">
     <Position X="15.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <HashCode>IIAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
       <FileName>Model\Exit.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -61,35 +61,35 @@
   <Class Name="BoulderDashApp.Model.Firefly" Collapsed="true">
     <Position X="13" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAIAAAIAAAAAIAAgAAABAAAAAAAAAAAAAAQA=</HashCode>
+      <HashCode>AIAAAAAAAIAAAIAAAAAIAAgAAABAAAAAAAAAAAAAAQA=</HashCode>
       <FileName>Model\Firefly.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BoulderDashApp.Model.HardenedMud" Collapsed="true">
     <Position X="17.5" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AIAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\HardenedMud.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BoulderDashApp.Model.Mud" Collapsed="true">
     <Position X="17.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAACAAAA=</HashCode>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAACAAAA=</HashCode>
       <FileName>Model\Mud.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BoulderDashApp.Model.Rockford" Collapsed="true">
     <Position X="15.25" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AIAAAAAAAIAAAAgAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Rockford.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BoulderDashApp.Model.Steelwall" Collapsed="true">
     <Position X="19.75" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
       <FileName>Model\Steelwall.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -103,7 +103,7 @@
       </Class>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>EAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAIAAAACACAA=</HashCode>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAIAAAACAAAA=</HashCode>
       <FileName>Model\Tile.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -113,14 +113,14 @@
   <Class Name="BoulderDashApp.Model.TNT" Collapsed="true">
     <Position X="22" Y="8" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAIAAAAAAAAAAAAgAAABAAAAAAAAABAAAAQI=</HashCode>
+      <HashCode>AIAAAAAAAIAAAAAAAAAAAAgAAABAAAAAAAAABAAAAQI=</HashCode>
       <FileName>Model\TNT.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BoulderDashApp.Model.Wall" Collapsed="true">
     <Position X="19.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
       <FileName>Model\Wall.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -141,9 +141,9 @@
       <FileName>Process\Maincontroller.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Field Name="_levelData" />
-      <Field Name="inputView" />
       <Field Name="outputView" />
+      <Field Name="inputView" />
+      <Field Name="_levelData" />
       <Property Name="Cave" />
     </ShowAsAssociation>
   </Class>
@@ -157,7 +157,7 @@
   <Class Name="BoulderDashApp.View.OutputView" Collapsed="true">
     <Position X="28.75" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAAAiAAAAAACAAAAAA=</HashCode>
+      <HashCode>AAEAAAAAAAAAAAwAAAAAAAAAAAAAAiEAAAAACAAAAAA=</HashCode>
       <FileName>View\OutputView.cs</FileName>
     </TypeIdentifier>
   </Class>

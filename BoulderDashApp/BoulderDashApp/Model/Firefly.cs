@@ -36,6 +36,7 @@ namespace BoulderDashApp.Model
         public override void Destroy()
         {
             Explode();
+            WorthPoints = 250;
         }
 
         private void Explode()
