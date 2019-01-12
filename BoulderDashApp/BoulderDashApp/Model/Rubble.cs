@@ -29,6 +29,7 @@ namespace BoulderDashApp.Model
         {
             if (CountConnectedSides())
             {
+                //this.Tile.Entity = null;
                 return false;
             }
             //Hier moven
@@ -64,4 +65,4 @@ namespace BoulderDashApp.Model
 
     }
 }
-}
+
