@@ -45,7 +45,7 @@ namespace BoulderDashApp.Process
                         outputView.RockfordIsKilledMessage();
                         return;
                     }
-                    if (Cave.Exit.Entity != null)
+                    if (Cave.Exit != null && Cave.Exit.Entity != null)
                     {
                         int finalScore = Cave.GetScore() + ((Cave.LevelTime - Cave.PlayTime) * 10);
                         outputView.GameWon(finalScore);
