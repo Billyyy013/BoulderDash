@@ -30,6 +30,7 @@ namespace BoulderDashApp.Model
                 entity.CollectedEntities.Add(this);
                 this.Tile.Entity = null;
                 this.Tile.PlaceEntity(entity);
+                this.Tile = null;
                 this.IsDestroyed = true;
                 WorthPoints = 10;
             }
