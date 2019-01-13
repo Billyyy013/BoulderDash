@@ -154,6 +154,13 @@
       <FileName>View\OutputView.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="BoulderDashApp.Model.OriginClass">
+    <Position X="13.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\OriginClass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Enum Name="BoulderDashApp.Model.Direction">
     <Position X="19.75" Y="6.25" Width="1.5" />
     <TypeIdentifier>
