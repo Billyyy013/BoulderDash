@@ -22,7 +22,7 @@ namespace BoulderDashApp.Model
         {
             if (entity.CanKill)
             {
-                Explode();
+                Destroy();
                 this.Tile.Entity = null;
                 this.Tile.PlaceEntity(entity);
                 this.IsDestroyed = true;
@@ -35,14 +35,15 @@ namespace BoulderDashApp.Model
 
         public override void Destroy()
         {
+            this.IsDestroyed = true;
+            this.Tile.Entity = null;
             Explode();
             WorthPoints = 250;
         }
 
         private void Explode()
         {
-            this.IsDestroyed = true;
-            this.Tile.Entity = null;
+            
             RedoReferences(this.Tile.Tilelink.Above.Tilelink.Left);
             RedoReferences(this.Tile.Tilelink.Above);
 

@@ -40,6 +40,7 @@ namespace BoulderDashApp.Model
         {
             this.Tile.Entity = null;
             IsDestroyed = true;
+            RedoReferences(this.Tile, new EmptyTIle());
         }
 
         public override bool Move()

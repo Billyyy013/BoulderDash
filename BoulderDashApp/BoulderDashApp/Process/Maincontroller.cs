@@ -22,8 +22,8 @@ namespace BoulderDashApp.Process
             inputView = new View.InputView();
 
             _levelData = new LevelData();
-            Cave = _levelData.Cave;
             _levelData.BuildMaze(inputView.AskForLevelNumber());
+            Cave = _levelData.Cave;
 
             outputView.PrintMaze(Cave.First, Cave.Rockford.DiamondCounter, Cave.AmountOfDiamonds);
             outputView.Score(Cave.GetScore());
