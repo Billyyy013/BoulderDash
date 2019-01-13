@@ -44,15 +44,16 @@ namespace BoulderDashApp.View
             Console.WriteLine("|                                                         |");
             Console.WriteLine("| Betekenis van de symbolen    |    Doel van het spel     |");
             Console.WriteLine("|                              |                          |");
-            Console.WriteLine("|      @ : rockford            |    Duw met de truck      |");
-            Console.WriteLine("|      ▒ : modder              |    De krat(ten)          |");
-            Console.WriteLine("|      . : vloer               |    naar de bestemming    |");
+            Console.WriteLine("|      @ : rockford            |    Probeer met Rockford  |");
+            Console.WriteLine("|      ▒ : modder              |    De finish te bereiken |");
+            Console.WriteLine("|      . : vloer               |                          |");
             Console.WriteLine("|      o : steen               |                          |");
-            Console.WriteLine("|      D : Diamant             |                          |");
+            Console.WriteLine("|      Ð : Diamant             |                          |");
             Console.WriteLine("|      0 : exit                |                          |");
-            Console.WriteLine("|      ◙ : firefly             |                          |");
-            Console.WriteLine("|      H : hardenedmud         |                          |");
-            Console.WriteLine("|      T : TNT                 |                          |");
+            Console.WriteLine("|      ƒ : firefly             |                          |");
+            Console.WriteLine("|      █ : hardenedmud         |                          |");
+            Console.WriteLine("|      + : TNT                 |                          |");
+            Console.WriteLine("|      ▓ : Rubble              |                          |");
             Console.WriteLine("└─────────────────────────────────────────────────────────┘");
             Console.WriteLine();
 
@@ -96,7 +97,7 @@ namespace BoulderDashApp.View
 
         public override void Visit(Diamond diamond)
         {
-            _drawString = 'D';
+            _drawString = 'Ð';
         }
 
         public override void Visit(Exit exit)
@@ -111,12 +112,12 @@ namespace BoulderDashApp.View
 
         public override void Visit(Firefly firefly)
         {
-            _drawString = 'F';
+            _drawString = 'ƒ';
         }
 
         public override void Visit(HardenedMud hardenedMud)
         {
-            _drawString = 'H';
+            _drawString = '█';
         }
 
         public override void Visit(Mud mud)
@@ -131,7 +132,7 @@ namespace BoulderDashApp.View
 
         public override void Visit(Rubble rubble)
         {
-            _drawString = 'R';
+            _drawString = '▓';
         }
 
         public override void Visit(Steelwall steelwall)
@@ -141,7 +142,7 @@ namespace BoulderDashApp.View
 
         public override void Visit(TNT tnt)
         {
-            _drawString = 'T'; 
+            _drawString = '+'; 
         }
 
         public override void Visit(Wall wall)
