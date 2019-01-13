@@ -91,30 +91,31 @@ namespace BoulderDashApp.Model
         {
             if (tile.CanBeDestroyed)
             {
-                if (tile.Entity != null)
-                {
-
-                    if (!tile.Entity.IsDestroyed)
-                    {
-                        tile.Entity.Destroy();
-                    }
-
-                }
                 EmptyTIle emptyTIle = new EmptyTIle();
                 emptyTIle.Tilelink.Left = tile.Tilelink.Left;
                 emptyTIle.Tilelink.Right = tile.Tilelink.Right;
                 emptyTIle.Tilelink.Above = tile.Tilelink.Above;
                 emptyTIle.Tilelink.Below = tile.Tilelink.Below;
+                
+
+                tile.Tilelink.Above.Tilelink.Below = emptyTIle;
+                tile.Tilelink.Below.Tilelink.Above = emptyTIle;
+                tile.Tilelink.Left.Tilelink.Right = emptyTIle;
+                tile.Tilelink.Right.Tilelink.Left = emptyTIle;
+                if (tile.Entity != null)
+                {
+                    if (!tile.Entity.IsDestroyed)
+                    {
+                        tile.Entity.Destroy();
+                    }
+                    
+                }
                 emptyTIle.Entity = tile.Entity;
                 if (emptyTIle.Entity != null)
                 {
                     emptyTIle.Entity.Tile = emptyTIle;
                 }
 
-                tile.Tilelink.Above.Tilelink.Below = emptyTIle;
-                tile.Tilelink.Below.Tilelink.Above = emptyTIle;
-                tile.Tilelink.Left.Tilelink.Right = emptyTIle;
-                tile.Tilelink.Right.Tilelink.Left = emptyTIle;
             }
         }
     }

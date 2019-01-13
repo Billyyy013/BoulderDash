@@ -17,6 +17,7 @@ namespace BoulderDashApp.Model
             CanDig = false;
             CanKill = true;
             IsCollectible = false;
+            IsDestroyed = false;
         }
 
         public override void Accept(Visitor visitor)
@@ -26,9 +27,10 @@ namespace BoulderDashApp.Model
                 visitor.Visit(this);
                 return;
             }
+            Entity e = this.Tile.Entity;
             this.Tile.Entity = null;
             this.Tile.Accept(visitor);
-            this.Tile.Entity = this;
+            this.Tile.Entity = e;
         }
 
         public override void Collision(Entity entity)
@@ -40,20 +42,32 @@ namespace BoulderDashApp.Model
         {
             this.Tile.Entity = null;
             IsDestroyed = true;
-            RedoReferences(this.Tile, new EmptyTIle());
         }
 
         public override bool Move()
         {
+            if (this.IsDestroyed)
+            {
+                if (this.Tile != null)
+                {
+                    this.Tile.Entity = null;
+                    this.Tile = null;
+                }
+                return false;
+            }
+
             if (CountConnectedSides())
             {
                 falling = false;
                 return false;
             }
             Tile t = this.Tile;
-            this.RedoReferences(this.Tile, new EmptyTIle());
+            this.RedoReferences(this.Tile, new EmptyTIle(), this);
             bool b = this.Tile.Tilelink.GetTile(MoveDirection).PlaceEntity(this);
-            this.RedoReferences(this.Tile, t);
+            if (!this.IsDestroyed)
+            {
+                this.RedoReferences(this.Tile, t,this);
+            }
             if (b)
             {
                 falling = true;
@@ -83,23 +97,26 @@ namespace BoulderDashApp.Model
             return false;
         }
 
-        private void RedoReferences(Tile tile, Tile newTile)
+        private void RedoReferences(Tile tile, Tile newTile, Entity e)
         {
             newTile.Tilelink.Left = tile.Tilelink.Left;
             newTile.Tilelink.Right = tile.Tilelink.Right;
             newTile.Tilelink.Above = tile.Tilelink.Above;
             newTile.Tilelink.Below = tile.Tilelink.Below;
-            newTile.Entity = tile.Entity;
-            if (newTile.Entity != null)
-            {
-                newTile.Entity.Tile = newTile;
-            }
+
 
             tile.Tilelink.Above.Tilelink.Below = newTile;
             tile.Tilelink.Below.Tilelink.Above = newTile;
             tile.Tilelink.Left.Tilelink.Right = newTile;
             tile.Tilelink.Right.Tilelink.Left = newTile;
+
+            if (e != null)
+            {
+                newTile.Entity = e;
+                e.Tile = newTile;
+            }
         }
+
     }
 }
 

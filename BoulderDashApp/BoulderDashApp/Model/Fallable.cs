@@ -17,7 +17,14 @@ namespace BoulderDashApp.Model
 
         public override bool Move()
         {
-            if (this.IsDestroyed) { return false; }
+            if (this.IsDestroyed) {
+                if (this.Tile != null)
+                {
+                    this.Tile.Entity = null;
+                    this.Tile = null;
+                }
+                return false;
+            }
 
             MoveDirection = Direction.DOWN;
             if (!this.Tile.Tilelink.GetTile(MoveDirection).PlaceEntity(this))
@@ -65,5 +72,7 @@ namespace BoulderDashApp.Model
             MoveDirection = Direction.DOWN;
             return false;
         }
+
+        
     }
 }
