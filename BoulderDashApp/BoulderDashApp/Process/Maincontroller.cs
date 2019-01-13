@@ -25,7 +25,7 @@ namespace BoulderDashApp.Process
             _levelData.BuildMaze(inputView.AskForLevelNumber());
             Cave = _levelData.Cave;
 
-            outputView.PrintMaze(Cave.First, Cave.Rockford.DiamondCounter, Cave.AmountOfDiamonds);
+            outputView.PrintMaze(Cave.First, Cave.Rockford.CollectedEntities.Count, Cave.AmountOfDiamonds);
             outputView.Score(Cave.GetScore());
 
             Game();
@@ -43,7 +43,7 @@ namespace BoulderDashApp.Process
                     MoveRockford();
                     if (Cave.Rockford.IsDestroyed)
                     {
-                        outputView.PrintMaze(Cave.First, Cave.Rockford.DiamondCounter, Cave.AmountOfDiamonds);
+                        outputView.PrintMaze(Cave.First, Cave.Rockford.CollectedEntities.Count, Cave.AmountOfDiamonds);
                         outputView.Score(Cave.GetScore());
                         outputView.RockfordIsKilledMessage();
                         return;
@@ -55,7 +55,7 @@ namespace BoulderDashApp.Process
                         return;
                     }
                     //Check if all diamonds are collected
-                    if (Cave.Rockford.DiamondCounter == Cave.AmountOfDiamonds)
+                    if (Cave.Rockford.CollectedEntities.Count == Cave.AmountOfDiamonds)
                     {
                         if (Cave.Exit != null)
                         {
@@ -66,7 +66,7 @@ namespace BoulderDashApp.Process
                     Cave.MoveMovables();
                     if (Cave.Rockford.IsDestroyed)
                     {
-                        outputView.PrintMaze(Cave.First, Cave.Rockford.DiamondCounter, Cave.AmountOfDiamonds);
+                        outputView.PrintMaze(Cave.First, Cave.Rockford.CollectedEntities.Count, Cave.AmountOfDiamonds);
                         outputView.Score(Cave.GetScore());
                         outputView.RockfordIsKilledMessage();
                         return;
@@ -74,11 +74,11 @@ namespace BoulderDashApp.Process
 
 
 
-                    outputView.PrintMaze(Cave.First, Cave.Rockford.DiamondCounter, Cave.AmountOfDiamonds);
+                    outputView.PrintMaze(Cave.First, Cave.Rockford.CollectedEntities.Count, Cave.AmountOfDiamonds);
                     outputView.Score(Cave.GetScore());
                 }
                 Cave.PlayTime++;
-                Console.WriteLine(Cave.PlayTime);
+                
             }
             outputView.TimesUp();
         }

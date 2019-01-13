@@ -9,14 +9,17 @@ namespace BoulderDashApp.Model
     public abstract class Entity : OriginClass
     {
         public Tile Tile { get; set; }
-        public int DiamondCounter { get; set; }
+
+        public List<Entity> CollectedEntities { get; set; }
+
+        public int WorthPoints = 0;
 
         public Entity()
         {
             IsDestroyed = false;
+            CollectedEntities = new List<Entity>();
         }
 
-        public int WorthPoints = 0;
 
         public abstract void Collision(Entity entity);
 

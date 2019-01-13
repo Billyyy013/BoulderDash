@@ -27,7 +27,7 @@ namespace BoulderDashApp.Model
         {
             if (entity.CanDig)
             {
-                entity.DiamondCounter++;
+                entity.CollectedEntities.Add(this);
                 this.Tile.Entity = null;
                 this.Tile.PlaceEntity(entity);
                 this.IsDestroyed = true;
