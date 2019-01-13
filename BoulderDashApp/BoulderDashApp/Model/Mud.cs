@@ -32,7 +32,7 @@ namespace BoulderDashApp.Model
                 emptyTIle.Tilelink.Above = this.Tilelink.Above;
                 emptyTIle.Tilelink.Below = this.Tilelink.Below;
                 emptyTIle.Entity = null;
-
+                if (this.Entity != null) { this.Entity.Destroy(); }
                 this.Tilelink.Above.Tilelink.Below = emptyTIle;
                 this.Tilelink.Below.Tilelink.Above = emptyTIle;
                 this.Tilelink.Left.Tilelink.Right = emptyTIle;
