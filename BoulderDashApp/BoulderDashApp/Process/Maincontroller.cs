@@ -99,7 +99,7 @@ namespace BoulderDashApp.Process
 
                 Rockford rockford = Cave.Rockford;
                 ConsoleKey key = inputView.RetrieveConsoleKey();
-                if (key == ConsoleKey.UpArrow || key == ConsoleKey.DownArrow || key == ConsoleKey.LeftArrow || key == ConsoleKey.RightArrow)
+                if (key == ConsoleKey.UpArrow || key == ConsoleKey.DownArrow || key == ConsoleKey.LeftArrow || key == ConsoleKey.RightArrow || key == ConsoleKey.B)
                 {
                     switch (key)
                     {
@@ -115,6 +115,8 @@ namespace BoulderDashApp.Process
                         case ConsoleKey.RightArrow:
                             rockford.MoveDirection = Direction.RIGHT;
                             break;
+                        case ConsoleKey.B:
+                            return;
                     }
                     rockford.Move();
 

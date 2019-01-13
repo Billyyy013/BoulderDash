@@ -10,6 +10,7 @@ namespace BoulderDashApp.Model
     public class Rubble : Fallable
     {
         public bool falling = false;
+        private bool hasFallen = false;
 
         public Rubble()
         {
@@ -18,11 +19,12 @@ namespace BoulderDashApp.Model
             CanKill = true;
             IsCollectible = false;
             IsDestroyed = false;
+            CanSupport = false;
         }
 
         public override void Accept(Visitor visitor)
         {
-            if (falling)
+            if (falling || hasFallen)
             {
                 visitor.Visit(this);
                 return;
@@ -58,6 +60,11 @@ namespace BoulderDashApp.Model
 
             if (CountConnectedSides())
             {
+                if (falling)
+                {
+                    hasFallen = true;
+                    RedoReferences(this.Tile, new Mud(), this);
+                }
                 falling = false;
                 return false;
             }
@@ -66,7 +73,7 @@ namespace BoulderDashApp.Model
             bool b = this.Tile.Tilelink.GetTile(MoveDirection).PlaceEntity(this);
             if (!this.IsDestroyed)
             {
-                this.RedoReferences(this.Tile, t,this);
+                this.RedoReferences(this.Tile,t ,this);
             }
             if (b)
             {
@@ -90,7 +97,7 @@ namespace BoulderDashApp.Model
                     counter++;
             }
                    
-            if (counter >= 2)
+            if (counter > 1)
             {
                 return true;
             }

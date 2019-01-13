@@ -10,7 +10,7 @@ namespace BoulderDashApp.View
     {
         public void AskForArrowInput()
         {
-            Console.WriteLine("Gebruik de pijltjes toetsen.");
+            Console.WriteLine("Gebruik de pijltjes toetsen om te bewegen of 'B' om een beurt over te slaan.");
         }
 
         public ConsoleKey RetrieveConsoleKey()
