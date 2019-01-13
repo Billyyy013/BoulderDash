@@ -20,11 +20,14 @@ namespace BoulderDashApp.Process
         {
             outputView = new View.OutputView();
             inputView = new View.InputView();
+
             _levelData = new LevelData();
-            _levelData.BuildMaze(inputView.AskForLevelNumber());
             Cave = _levelData.Cave;
+            _levelData.BuildMaze(inputView.AskForLevelNumber());
+
             outputView.PrintMaze(Cave.First, Cave.Rockford.DiamondCounter, Cave.AmountOfDiamonds);
             outputView.Score(Cave.GetScore());
+
             Game();
             Console.ReadLine();
         }
